@@ -1,0 +1,21 @@
+---
+description: No analytics, trackers, or third-party embeds — site matches the app
+alwaysApply: true
+---
+
+# Privacy of the site
+
+Slates ships with **zero telemetry**. The public site must match.
+
+- No Google Analytics, Plausible, Fathom, pixels, gtag, or “just a font counter”
+- No third-party iframes; YouTube / tweets: link out, do not embed
+- No cookie banners (there are no cookies we set)
+- No Typekit / Google Fonts unless the face is **self-hosted**
+- Do not add our own logs, measurement, or A/B tools
+
+`/privacy` must say: local-first storage, **opt-in** iCloud, no app telemetry;
+GitHub Pages may log request metadata at the infrastructure layer; we add
+none. Support email (`mikedovale@pm.me`) is used only to reply.
+
+Never claim “everything stays on your Mac” without the iCloud caveat:
+**“Stored locally by default; optional iCloud sync.”**

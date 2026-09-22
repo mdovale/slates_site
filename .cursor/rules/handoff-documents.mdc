@@ -1,0 +1,34 @@
+---
+description: Create handoff documents between agents for site work
+alwaysApply: false
+---
+
+# Handoff documents
+
+When handing off work, write `docs/handoffs/YYYYMMDD_<topic-slug>.md` so the
+next session has full context (bugs, page implementation, design decisions).
+
+When **implementing** a handoff, follow `.cursor/rules/git-workflow.mdc` and
+treat `BLUEPRINT.md` as product/design authority.
+
+## File naming
+
+- `docs/handoffs/YYYYMMDD_<topic-slug>.md`
+- Same date + topic: `YYYYMMDDb_`, `YYYYMMDDc_`, …
+
+## Required sections
+
+- **Current status**: what is implemented vs deferred; dirty tree if any
+- **Problem, feature, or goal**: for bugs, repro steps; for pages, which URL
+  and blueprint section
+- **Context**: files, tokens, photography, Pages/URL constraints
+- **Success criteria**: matches blueprint + acceptance checklist (§18)
+- **References**: blueprint headings, MDN, Pages docs, prior handoffs
+
+## Extended (when applicable)
+
+Scope, recommended next steps, files touched, what was tried, design
+decisions already made, accessibility/manual QA, open blueprint decisions
+(§19) that must not be silently closed.
+
+Do not delete historical sections; append or revise status in place.

@@ -1,0 +1,33 @@
+---
+description: BLUEPRINT.md is the only source of truth for slates-site
+alwaysApply: true
+---
+
+# Source of truth
+
+This repo is the **public Slates site**, not the macOS app. Until pages ship,
+`BLUEPRINT.md` is the only product and design authority. Do not invert that.
+
+## Authority order
+
+1. **`BLUEPRINT.md`** — what the site is, looks like, must not become, and how
+   it stays easy to keep alive
+2. **Shipped HTML/CSS** — once pages exist, they must match the blueprint; if
+   they drift, say so and fix toward the blueprint (do not “update the
+   blueprint to match a shortcut”)
+3. **`.cursor/rules/`** — operational constraints for agents
+4. **`docs/handoffs/`** — historical investigation context, not product spec
+
+The **private app repo** is authoritative for app behavior. This site must not
+copy `docs/feats/`, handoffs, or engineering notes from that repo into public
+pages. When app and site copy disagree, the shipping app and this site should
+agree; public wording still follows this blueprint.
+
+## Do not
+
+- Invent features, pricing, platforms, or claims not in the blueprint
+- Advertise IAP, Pocket / iOS, App Intents, or a blog until the blueprint
+  says they are in scope
+- Treat inherited Cursor files, app-repo memory, or generic marketing
+  templates as design direction
+- Add analytics, accounts, a CMS, a JS SPA, or a ticket system

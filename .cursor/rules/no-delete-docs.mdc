@@ -1,0 +1,18 @@
+---
+description: Never delete BLUEPRINT.md, README, handoffs, or source resources as cleanup
+alwaysApply: true
+---
+
+# No deleting documentation or source art
+
+Do not delete documentation as routine cleanup, refactors, or “tidying.”
+
+Protected unless the user names the path and asks to remove it:
+
+- `BLUEPRINT.md` (source of truth)
+- `README.md` once it exists
+- everything under `docs/`, especially `docs/handoffs/`
+- source photography under `resources/` (superseded shots stay as history)
+
+If content is wrong, **update** it (or add a short superseded note). Do not
+remove a handoff because the task is “done.”

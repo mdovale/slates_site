@@ -1,0 +1,35 @@
+---
+description: Static HTML and CSS on GitHub Pages; no framework, no required build
+alwaysApply: true
+---
+
+# Site stack
+
+**Static HTML + CSS. No JS framework. No build step required for v1.**
+
+## Do
+
+- Hand-written pages a human can edit in a weekend
+- `css/tokens.css` (palette) + `css/site.css` (layout/type)
+- Pretty URLs via directories with `index.html` (`/support`, `/privacy`)
+- Images in `images/` with boring names (WebP + JPEG fallback)
+- GitHub Pages from `main`, site at repo root
+- Local preview: `python3 -m http.server` in the repo root
+- Progressive enhancement: the site works with JavaScript disabled
+
+## Do not
+
+- Next.js, React, Tailwind-in-JS, a CMS, Docker, Netlify plugins, serverless
+- CSS-in-JS or utility soup that hides the design
+- Client-side routing
+- Eleventy / npm in v1 unless writing HTML by hand is already painful
+- Publish `resources/` as the live image tree (that folder is source art)
+
+## JavaScript
+
+Zero JS on `/privacy` (and later `/terms`). Home may have a few dozen lines
+for an optional icon easter egg or footer year. No analytics, font-loading
+observers, or cookie scripts.
+
+Stable URLs: `/`, `/support`, `/privacy`. Never reorganize those three without
+redirects.

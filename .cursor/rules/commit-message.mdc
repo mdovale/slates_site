@@ -1,0 +1,48 @@
+---
+description: Conventional Commits and vim-ready plaintext when drafting commit messages
+alwaysApply: false
+---
+
+# Commit messages
+
+When asked to propose or write a commit message (or after summarizing repo
+changes for a commit), follow this.
+
+## Inspect changes
+
+1. Run `git status` and `git diff --cached` (or `git diff` if nothing is
+   staged) to see what would be committed.
+2. Summarize the changes accurately; do not invent scope or files.
+
+## Format (Conventional Commits)
+
+Output **one** plaintext fenced code block containing the **full** message
+only. Do not wrap the subject or body in extra commentary outside that block.
+
+- **Subject:** one line; prefer ~**50** characters; never more than **72**
+- Blank line after the subject
+- **Body and bullets:** hard-wrap at **72** characters; indent wrapped list
+  continuations
+
+```
+type(scope): brief description
+
+- Change 1
+- Change 2 that runs long and continues on the next line with
+  matching indentation when needed
+```
+
+Use a real `type` (`feat`, `fix`, `docs`, `chore`, `refactor`, `style`) and
+an optional scope (`home`, `support`, `privacy`, `css`, `history`, `cursor`,
+`resources`). Imperative subject; bullets for substance.
+
+## Repo policy
+
+Follow `.cursor/rules/git-workflow.mdc` for when to commit.
+
+- **Handoff / implementation:** when implementing from `docs/handoffs/` or
+  when the user asks to build and keep git updated, `git add` narrowly and
+  `git commit` after each logical milestone.
+- **Otherwise:** do not run `git commit`, `git add`, or `git stash` unless
+  the user explicitly asked. Inspecting with `git status` / `git diff` is
+  always fine.

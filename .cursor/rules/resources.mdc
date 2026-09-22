@@ -1,0 +1,31 @@
+---
+description: Source photography in resources/; publish optimized copies in images/
+globs: "{resources,images}/**"
+alwaysApply: false
+---
+
+# Marketing resources
+
+`resources/` is **source art**, not the GitHub Pages tree. Do not link live
+pages at these paths. Export selected shots into `images/` as 2x WebP + JPEG,
+longest edge ~2560px, boring names (`BLUEPRINT.md` §8.5, §11.3).
+
+Prefer **`resources/marketing-slates-simple/`** for v1 (cleaner, fewer themes).
+The **complex** set is a larger library (per-slate windows, palettes, menu bar,
+screen recordings) for later bands — not a dump onto the home page.
+
+## Blueprint shot list → likely sources
+
+| Blueprint shot | Simple (start here) | Complex (if needed) |
+|----------------|---------------------|---------------------|
+| Mac list, dark | `dark_fulldesktop_list_vertical.png` | `dark_fulldesktop_list_vertical_centered.png` |
+| Mac focus view | `slate_main_dark.png`, `dark_fulldesktop_main.png` | `dark_window_slate*.png` |
+| Light list variant | `light_fulldesktop_list_vertical.png` | same naming |
+| Menu bar HUD | — | `dark_menubar.png` |
+
+Crop tight. Full-desktop frames include Dock/menu bar; the money shot should
+feel like the **window**, not a wallpaper ad. Sample text in these shots is
+starter-catalog-like and is fine to show.
+
+Do **not** autoplay the `.mov` files (`BLUEPRINT.md` §8.7, §14). Do not use
+generic mockup sites or AI device frames instead of these photographs.

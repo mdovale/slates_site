@@ -1,0 +1,29 @@
+---
+description: Do not paper over design or Pages issues with frameworks, overlays, or JS
+alwaysApply: true
+---
+
+# No hacky workarounds
+
+Do not ship brittle patches as the primary fix. This site is hand-authored
+HTML and CSS. That is the architecture, not something to fight.
+
+Acceptable when narrow, explained, and based on stable CSS/HTML:
+
+- semantic markup and one or two stylesheets
+- CSS custom properties from the blueprint tokens
+- a few dozen lines of optional home JS (easter egg, footer year)
+
+Stop when the only path is:
+
+- adding a framework, Tailwind, or a design-system kit to “look finished”
+- overlay divs, z-index wars, or covering GitHub Pages chrome
+- timing-based retries, layout thrash, or JS that the page needs to render
+- analytics or third-party widgets “just while we debug”
+- copying `resources/` binaries straight into Pages without crop/export
+
+## Instead: hand-off writeup
+
+Create `docs/handoffs/YYYYMMDD_<topic-slug>.md` so another session can
+research (CSS, Pages, accessibility), consider alternatives, and implement a
+proper fix. Follow `.cursor/rules/handoff-documents.mdc`.

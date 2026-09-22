@@ -1,0 +1,45 @@
+---
+description: Single-agent trunk workflow — linear history, small frequent commits
+alwaysApply: true
+---
+
+# Git workflow (single agent, trunk)
+
+Assume **one agent session at a time** on this repo. No parallel agents or
+long-lived topic branches unless the user explicitly asks for them.
+
+GitHub Pages deploys from `main`. That is extra reason to keep history linear
+and never force-push the default branch unless the user explicitly requests it.
+
+## Trunk and linear history
+
+- Work on the default branch (e.g. `main`). Do not create feature branches for
+  routine handoff or page implementation.
+- Before continuing after the remote may have moved, use `git pull --rebase`
+  (not `git pull` merge) so history stays a straight line.
+- Avoid merge commits for integrating your own work.
+- Do **not** `git push --force` to the shared default branch unless the user
+  explicitly requests it.
+
+## Commit cadence during handoffs
+
+When implementing work described in `docs/handoffs/*.md`, `BLUEPRINT.md`, or
+when the user asks you to implement a multi-step change and keep the repo
+updated:
+
+1. **Commit often** — after each coherent, working increment
+2. **Keep commits small** — one logical concern per commit
+3. **Stage narrowly** — explicit paths; do not commit editor junk, `.DS_Store`,
+   or unoptimized dumps from `resources/` into `images/` unless asked
+4. **Message format** — `.cursor/rules/commit-message.mdc`. Optional handoff
+   file name in the body
+
+If the user clearly says **not** to commit, only inspect with `git status` /
+`git diff`.
+
+## Session hygiene
+
+End a work block with a **clean** working tree when possible. If you must stop
+mid-change, prefer a **WIP commit** with an honest subject (e.g.
+`chore(site): wip tokens and eight-circle hero`) unless the user forbids WIP
+commits.

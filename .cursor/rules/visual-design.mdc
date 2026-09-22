@@ -1,0 +1,43 @@
+---
+description: Eight-slate art direction, tokens, copy, and accessibility
+globs: "**/*.{html,css,md}"
+alwaysApply: true
+---
+
+# Visual design and copy
+
+The site must look designed, not generated. **The site is eight slates.**
+Details live in `BLUEPRINT.md` §8–§10 and §15. Do not invent a ninth palette.
+
+## Color and type
+
+- Default system: **Slates Dark** tokens from the blueprint (§8.2)
+- Page ground: `#000000` or `#131313`. Not dark gray-blue
+- Links inherit the **current section accent**, not a global blue
+- Home and `/support` stay dark and colorful. `/privacy` may use Slates Light
+  washes for long reading — not a light-mode corporate marketing page
+- Self-hosted or system fonts only. Light headlines (200–400), not heavy black
+  type on neon
+
+## Layout and motion
+
+- Full-bleed color bands; copy stays in ~40–44rem measure
+- Numbered 1–8 circles are as important as color; do not convey meaning by
+  color alone
+- Real product photography, not stock, AI device frames, or 3D blobs
+- `prefers-reduced-motion: reduce` disables motion. No scroll-jacking
+
+If a section could live on a generic startup template (Inter + Lucide +
+“supercharged”), it is not done.
+
+## Copy
+
+Calm, specific, a little proud. Author: **Miguel Dovale**. English only for v1.
+Home subtitle: *Eight color-coded scratchpads for quick capture.* Feature
+grid maps one feature to each slot color (`BLUEPRINT.md` §9.1). Footer on
+every page: Support · Privacy · Email · © Miguel Dovale.
+
+## Accessibility
+
+Contrast for body and footer gray; focus rings on App Store and mailto;
+real `alt` text; VoiceOver-linear `/support` and `/privacy`.

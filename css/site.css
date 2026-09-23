@@ -1336,6 +1336,28 @@ a.store:focus-visible {
   overflow-wrap: anywhere;
 }
 
+.copy-mail {
+  margin: 0 0 0.8rem 0.9rem;
+  padding: 0.35rem 0.8rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--chrome) 16%, transparent);
+  color: var(--chrome);
+  font: inherit;
+  font-size: 0.9rem;
+  vertical-align: 0.35em;
+  cursor: pointer;
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+.copy-mail:hover {
+  background: color-mix(in srgb, var(--chrome) 26%, transparent);
+}
+
+.copy-mail:active {
+  transform: scale(0.94);
+}
+
 .contact-list {
   margin: 1.5rem 0 0;
   padding: 0;
@@ -2348,8 +2370,75 @@ button.bullet:active {
   --size: 2.2rem;
 }
 
-.lost .strip li:nth-child(4) .dot {
+/* The missing page is slate 8, left blank as in the app. Hover, focus, or
+   toggle it and the empty window rises out of the gap. */
+.peek {
+  position: relative;
+}
+
+.peek input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lost .strip .blank {
+  color: transparent;
+  cursor: pointer;
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+.lost .strip .blank:active {
+  transform: scale(0.94);
+}
+
+.peek input:focus-visible + .strip .blank {
+  outline: 3px solid var(--slate-8);
+  outline-offset: 3px;
+}
+
+.empty-window {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: calc(100% - 1.25rem);
+  width: min(16rem, 72vw);
+  margin: 0 0 0 calc(min(16rem, 72vw) / -2);
+  pointer-events: none;
   visibility: hidden;
+  opacity: 0;
+  transform: translateY(12px) scale(0.94);
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-stage) var(--ease-spring),
+    visibility 0s var(--t-stage);
+}
+
+.empty-window img {
+  border-radius: 0.9rem;
+  box-shadow:
+    0 2rem 5rem rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.lost .peek ~ * {
+  transition: opacity var(--t-base) var(--ease-out);
+}
+
+.lost:has(.blank:hover, #peek:checked, #peek:focus-visible) .peek ~ * {
+  opacity: 0.12;
+}
+
+.peek:has(.blank:hover) .empty-window,
+.peek:has(#peek:checked) .empty-window,
+.peek:has(#peek:focus-visible) .empty-window {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-stage) var(--ease-spring),
+    visibility 0s;
 }
 
 /* ---------- Footer ---------- */

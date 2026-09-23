@@ -34,16 +34,25 @@
 
   <main id="main" class="page-title lost">
     <div class="measure">
-      <ul class="strip" aria-hidden="true">
-        <li><span class="dot slot-1">1</span></li>
-        <li><span class="dot slot-2">2</span></li>
-        <li><span class="dot slot-3">3</span></li>
-        <li><span class="dot slot-4">4</span></li>
-        <li><span class="dot slot-5">5</span></li>
-        <li><span class="dot slot-6">6</span></li>
-        <li><span class="dot slot-7">7</span></li>
-        <li><span class="dot slot-8">8</span></li>
-      </ul>
+      <div class="peek">
+        <input type="checkbox" id="peek" aria-label="Show slate 8, the empty one" autocomplete="off">
+        <ul class="strip" aria-hidden="true">
+          <li><span class="dot slot-1">1</span></li>
+          <li><span class="dot slot-2">2</span></li>
+          <li><span class="dot slot-3">3</span></li>
+          <li><span class="dot slot-4">4</span></li>
+          <li><span class="dot slot-5">5</span></li>
+          <li><span class="dot slot-6">6</span></li>
+          <li><span class="dot slot-7">7</span></li>
+          <li><label class="dot slot-8 blank" for="peek"></label></li>
+        </ul>
+        <figure class="empty-window">
+          <picture>
+            <source type="image/webp" srcset="images/empty-slate.webp">
+            <img src="images/empty-slate.jpg" width="690" height="710" decoding="async" alt="Slate 8 in focus, empty: a blank dark page, numbered squares 1 to 7 in the toolbar with the eighth left blank, and a footer reading 0 lines, 0 words, 0 characters.">
+          </picture>
+        </figure>
+      </div>
       <h1>This slate is empty.</h1>
       <p class="lead">The page you were looking for is not here. It may have moved, or the link has a typo.</p>
       <p><a href="./">Go to the home page</a> · <a href="support/">Get support</a></p>

@@ -157,7 +157,7 @@ The home page is a vertical walk through eight colored “slates,” then suppor
 4. **Feature grid** — Eight features, one per slate color (see §9).
 5. **What’s new** — Two-sentence blurb + link to `/history`.
 6. **Get help** — Same contact + top FAQ teasers as `/support`, so the home page is never a dead end for App Review.
-7. **Closing mark** — Icon + “Give Slates a try.” + App Store button again.
+7. **Closing mark** — Icon + “Give Slates a try.” + App Store button again. Under the macOS line, the acknowledgments sentence from the app: *Slates was inspired by Tot from The Iconfactory.* **Tot** links to `https://tot.rocks`. **The Iconfactory** links to `https://www.iconfactory.com`. Text links only. This is inspiration, not a partnership. The signed About letter stays in the app.
 
 **v2 changes to the home scroll** (approved September 2026):
 
@@ -198,6 +198,14 @@ Suggested v1 FAQ (edit as the product teaches us real questions):
 8. Which macOS versions are supported?
 9. What happens if I hit the text limit?
 10. How do I back up or restore?
+11. What about Tot?
+
+**Tot credit** (locked September 2026, matching the app’s About window):
+
+- Home closing, under the macOS line: “Slates was inspired by Tot from The Iconfactory.”
+- `/support`, Getting started, after “Why only eight?”: “Tot, from The Iconfactory, is why Slates exists. Tot is a small companion of colored dots. Slates is eight pads on a Mac: plain text, rich text, and code, in a window you can keep on the desk.”
+- **Tot** → `https://tot.rocks`. **The Iconfactory** → `https://www.iconfactory.com`. Official spelling is **The Iconfactory**.
+- Text links only. No logos, no “from the makers of,” no endorsement. The footer stays Support · Privacy · Email · ©. The signed letter (“That app is why this one exists”) stays in **Slates → About Slates**.
 
 Answers must follow the app privacy rule: **“Stored locally by default; optional iCloud sync.”** Never “everything stays on your Mac” without the iCloud caveat.
 
@@ -465,6 +473,7 @@ iPhone / iPad: omit until Pocket is real, or a single muted line: “iPhone comp
 - Calm, specific, a little proud. Not cute, not corporate.
 - Prefer verbs users do: capture, copy, clear, sync.
 - Author credit: **Miguel Dovale**. Copyright © 2026 Miguel Dovale.
+- Inspiration credit: **Tot** and **The Iconfactory**, as specified in §7.1 and §7.2.
 - English only for v1 (matches the app).
 
 ---

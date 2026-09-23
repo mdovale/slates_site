@@ -1289,6 +1289,10 @@ a.store:focus-visible {
   margin-bottom: 1.75rem;
 }
 
+.colophon {
+  margin-top: 0.65rem;
+}
+
 /* ---------- Page title band (support, history, privacy) ---------- */
 
 .page-title {

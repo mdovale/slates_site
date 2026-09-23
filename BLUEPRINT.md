@@ -203,7 +203,7 @@ Suggested v1 FAQ (edit as the product teaches us real questions):
 **Tot credit** (locked September 2026, matching the app’s About window):
 
 - Home closing, under the macOS line: “Slates was inspired by Tot from The Iconfactory.”
-- `/support`, Getting started, after “Why only eight?”: “Tot, from The Iconfactory, is why Slates exists. Tot is a small companion of colored dots. Slates is eight pads on a Mac: plain text, rich text, and code, in a window you can keep on the desk.”
+- `/support`, Getting started, after “Why only eight?”: “Tot, from The Iconfactory, is why Slates exists. Tot is a tiny text companion of seven colored dots. Slates is eight pads in one list: plain text, rich text, code in 41 languages, smart bullets, multi-cursor, and twenty built-in palettes, or one you make yourself.”
 - **Tot** → `https://tot.rocks`. **The Iconfactory** → `https://www.iconfactory.com`. Official spelling is **The Iconfactory**.
 - Text links only. No logos, no “from the makers of,” no endorsement. The footer stays Support · Privacy · Email · ©. The signed letter (“That app is why this one exists”) stays in **Slates → About Slates**.
 

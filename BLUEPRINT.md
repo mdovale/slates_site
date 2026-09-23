@@ -1,10 +1,10 @@
 # Slates — Public Site BLUEPRINT
 
-Version: 0.1  
+Version: 0.2  
 Product: Slates (macOS scratchpad; iOS later)  
 Repo: public, separate from the private app repository  
 Host: GitHub Pages  
-Status: planning. This file is the source of truth for the public site until the first pages ship.
+Status: v1 shipped (September 2026). v2 approved: motion system, the Stage hero, appearance demos, `/features`, selected mockups, click-to-play recordings (§6.2). This file is the source of truth for the public site.
 
 The app codebase is authoritative for product behavior. This blueprint is authoritative for the public site: what it is, how it should look, what it must not become, and how it stays easy to keep alive.
 
@@ -90,8 +90,21 @@ The site succeeds if:
 - Favicon and apple-touch-icon from the app icon
 - Light, honest footer: support, privacy, email, copyright
 
-### 6.2 Later (do not block v1)
+### 6.2 In scope (v2, approved September 2026)
 
+Design brief and implementation plan: `docs/handoffs/20260922_v2-motion-showcase-features.md`.
+
+- A motion system that answers the visitor (§8.7)
+- **The Stage:** the home hero becomes a real Mac on stage, driven by the 1–8 glyph strip (§7.1)
+- **Appearance demos:** Dark / Light switches on real, aligned screenshot and mockup pairs (§7.1, §7.4)
+- **`/features`:** one chapter per slate color, covering every major feature (§7.4)
+- Selected device mockups showing real Slates captures (§8.5)
+- Screen recordings on `/features`, click-to-play only (§8.5)
+- Cross-page transitions (§8.7)
+
+### 6.3 Later (do not block v1 or v2)
+
+- Short silent loops on the home page, e.g. the list ↔ focus transition or a list orientation change (⌘L). Needs its own decision; see §8.7 and §19
 - Custom domain (prefer this as the URL frozen into binaries once owned)
 - iOS / iPad download band when Pocket ships
 - Press quotes and press kit
@@ -99,7 +112,7 @@ The site succeeds if:
 - Localized pages
 - Blog
 
-### 6.3 Out of scope
+### 6.4 Out of scope
 
 - Reproducing the in-app User Manual (that copy lives in `StarterContentCatalog` in the app)
 - Docs from the private app repo (`docs/feats/`, handoffs, perf reports)
@@ -119,8 +132,11 @@ Keep the URL surface tiny and stable. Shipped app builds will hard-link these.
 | `/` | Product home. Also a valid Support URL if `/support` is linked above the fold and in the footer. | Marketing URL |
 | `/support` | Canonical **Support URL**. Contact + FAQ. | **Support URL** |
 | `/privacy` | Privacy policy. | **Privacy Policy URL** |
+| `/features` | Every major feature, one chapter per slate color (v2, §7.4) | Linked from the site nav |
 | `/history` | Full release notes | Linked from home “What’s new” |
 | `/404.html` | GitHub Pages 404 | — |
+
+Site nav (every page): **Features · What’s new · Support**. Footer stays Support · Privacy · Email · ©.
 
 Optional later, same host:
 
@@ -142,6 +158,20 @@ The home page is a vertical walk through eight colored “slates,” then suppor
 5. **What’s new** — Two-sentence blurb + link to `/history`.
 6. **Get help** — Same contact + top FAQ teasers as `/support`, so the home page is never a dead end for App Review.
 7. **Closing mark** — Icon + “Give Slates a try.” + App Store button again.
+
+**v2 changes to the home scroll** (approved September 2026):
+
+- **The Stage replaces the static hero art.** A MacBook Pro 16" on a dark reflective surface (the owner’s licensed mockup series, §8.5) shows Slates in a vertical list. The 1–8 glyph strip sits under it as its toolbar:
+  - hovering, focusing, or tapping glyph N focuses slate N, like ⌘N in the app: the slate N window rises in front of the screen, the glyph lights like the app’s selected glyph, and slot N’s color spills onto the surface
+  - leaving the strip or pressing Esc returns to the list (⌘\\)
+  - a status line in the app’s footer style names the slate: `Slate 3 · Plain · Studio codes · ⌘3`
+  - a **Dark | Light** switch flips the laptop photo and every slate window between aligned pairs
+  - arrow keys step through the slates
+- **Same desk, lights up:** a band that compares the dark and light horizontal-strip mockups under a draggable divider.
+- **In the world:** one horizontal, swipeable strip of five or six lifestyle mockups. The product-first crops stay primary.
+- The site nav gains **Features**.
+
+The Stage, the appearance switch, and the strip must work without JavaScript (radio inputs, labels, `:has()`). Scripts may only preload images and add keyboard shortcuts.
 
 Footer on every page: Support · Privacy · Email · © Miguel Dovale.
 
@@ -184,6 +214,23 @@ Plain language, short, dated. Cover:
 - How to contact
 - Effective date
 
+### 7.4 Features page (v2)
+
+`/features` shows **every major feature**, as eight chapters, one per slate color. A sticky glyph rail (vertical on desktop, horizontal on phones) tracks the chapter in view and doubles as chapter navigation. Without JavaScript or scroll-driven CSS, it is a plain list of anchor links.
+
+| Ch. | Color | Chapter | Covers |
+|-----|-------|---------|--------|
+| 1 | Yellow | Color is the map | Eight colors; per-slate appearance; built-in palettes (palette wall that can re-theme the page, §8.2); reorder by dragging headers; hide slates |
+| 2 | Orange | Capture, copy, clear | Copy; Copy & Clear (a live mini slate you can type in; nothing is saved); share; the text limit |
+| 3 | Pink | Plain, Rich, Code | The three modes (tabs over real captures); rich headings, links, fenced code; dictionary-style text; word lookup |
+| 4 | Purple | Code, with the colors still on | 41 syntax languages; language picker; hex color previews; multi-cursor; the code-editing recording |
+| 5 | Blue | Smart bullets and cycles | Built-in cycles; header progress; custom cycles; clickable bullets on the page; the smart-bullets recording |
+| 6 | Cyan | Your desk, your layout | Focus and list; vertical list and horizontal strip (⌘L); fit to content; collapse (⌘M); word wrap; editor settings; shortcuts |
+| 7 | Green | Menu bar or Dock. Synced or not. Backed up. | Activate With; the compact menu bar window; opt-in iCloud; automatic snapshots; Save / Restore Backup |
+| 8 | Gray | Private by design | No analytics; local by default; opt-in iCloud; no account |
+
+Each chapter shows at least one real capture. The screen recordings live here, click-to-play (§8.5). Chapter copy follows §10.
+
 ---
 
 ## 8. Visual design
@@ -192,9 +239,17 @@ Plain language, short, dated. Cover:
 
 **The site is eight slates.**
 
-Scrolling the home page should feel like scanning the list in the app: each band is a distinct color identity (header, wash, accent, numbered circle). Photography of the real window sits inside those colors. Typography stays light and large. Motion is rare and physical.
+Scrolling the home page should feel like scanning the list in the app: each band is a distinct color identity (header, wash, accent, numbered circle). Photography of the real window sits inside those colors. Typography stays light and large. Motion is responsive and physical.
 
 If a section could live on a generic startup template, it is not done.
+
+v2 principles (approved September 2026):
+
+1. **The page behaves like the app.** Every interaction maps to a real Slates gesture: glyph N focuses slate N (⌘N), Esc returns to all slates (⌘\\), the appearance switch mirrors View → Theme. Playing with the site teaches the product.
+2. **Motion answers; it never performs.** Animations respond to hover, focus, click, or scroll. Nothing loops or plays on its own (§8.7).
+3. **Real pixels only.** Every frame is a real capture of Slates, flat or composited into a device photo.
+4. **CSS first, JavaScript as polish.** Core interactions work with JavaScript off (§11.2).
+5. **Fast on a phone.** Home initial transfer about 900 KB or less; everything else lazy or on idle.
 
 ### 8.2 Color tokens (canonical)
 
@@ -219,6 +274,8 @@ Use the **Slates Dark** built-in palette as the site’s default system. These h
 - Body text on dark bands: `#ffffff` / `#e7e7e7`
 - Muted footer text: `#808080`
 - Links inherit the **current section accent**, not a single global blue
+
+**Built-in palettes (v2):** the `/features` palette wall may show the app’s built-in palettes and may temporarily re-theme that page with one of them when the visitor picks it. The hex values come from the app’s built-in palette definitions. The choice is not stored and resets on reload. Still no invented palette; the site’s own system stays Slates Dark.
 
 **Light legal pages:** `/privacy` (and later `/terms`) may use **Slates Light** washes (`#f0ece0`, `#f0e7e0`, …) if long reading on black is fatiguing — but home and `/support` stay dark and colorful. Do not make the marketing site a light-mode corporate page.
 
@@ -283,7 +340,23 @@ Rules for sample text:
 - Prefer the same spirit as the in-app starter catalog (examples, not “Lorem ipsum”)
 - Syntax-highlighted code is allowed
 
-Do not use generic mockup sites, AI device frames, or stock “person with laptop.” Crop tight. Let color do the framing.
+Do not use AI device frames, stock “person with laptop,” or mockups showing anything other than a real Slates capture. Crop tight. Let color do the framing.
+
+**Device mockups (v2, approved September 2026).** The owner’s composites in `resources/mockups/` are licensed for commercial use (exported on a paid plan; no attribution required). They may be published when:
+
+- the screen shows a real, unedited Slates capture
+- the file is exported (cropped, resized, WebP + JPEG) into `images/` with a boring name, without the vendor prefix
+- product-first captures stay the primary photography; mockups are the Stage (§7.1) and a single “in the world” strip
+
+The MacBook Pro 16" dark-reflective series (ten frames, one camera, one light, only the screen changes) is the Stage. Its dark and light list frames are pixel-aligned pairs for the appearance switch.
+
+**Screen recordings (v2).** Click-to-play only, on `/features`:
+
+- inline, muted, with visible controls and a slot-colored poster; `preload="none"`
+- cropped to the Slates window and re-encoded (1080p H.264, no audio track, a few MB each); self-hosted, never a third-party player
+- a short text description beside each (what happens on screen)
+
+Short silent loops on the home page (for example list ↔ focus, or a ⌘L orientation change) are a later decision (§6.3, §8.7, §19). They need new, window-cropped captures; the current recordings are long and Light-only.
 
 **Local source library.** The masters live on disk under `resources/` and are **not in git** (`.gitignore`). Keep the tree. Do not commit it, and do not delete it as cleanup. Another clone will not contain it; copy it from the machine that holds the masters. Published pages use cropped exports in `images/` only.
 
@@ -293,10 +366,10 @@ Present locally (September 2026):
 |--------|----------------|
 | `resources/master-slates-simple/` | 34 PNGs. Start here for v1. Dark and light full-desktop and fullscreen lists, settings (bullets, editor), syntax language selection, collapsed window, and tighter crops: main, plain, code, smart bullets, and rich notes (dictionary, this week, to-do, with code, word lookup). |
 | `resources/master-slates-complex/` | 109 PNGs. Deeper library for later bands: dark and light full-desktop, fullscreen, and window shots; list layouts; menu bar; share sheet; palette; per-slate stills; code crops for eight languages (C++, HTML, JavaScript React, PHP, Ruby, Rust, SCSS, Swift), each also as a small crop; 23 named theme stills, including Slates Dark and Slates Light. |
-| `resources/mockups/` | 28 device-frame composites (MacBook Air, MacBook Pro, Studio Display, Pro Display XDR). Reference only. The live site still crops real product shots. A generic mockup is not the hero. |
-| `resources/video/` | Three screen recordings: `screen_recording_code-editing.mov`, `screen_recording_smart_bullets.mov`, `screen_recording_workflow.mov`. Do not autoplay them (§8.7). |
+| `resources/mockups/` | 28 licensed device-frame composites (MacBook Air, MacBook Pro, Studio Display, Pro Display XDR) showing real Slates captures. v2: the MacBook Pro 16" dark-reflective series is the Stage; five or six lifestyle frames may appear in one strip (see above). |
+| `resources/video/` | Three screen recordings (4K, Light, full desktop): `screen_recording_code-editing.mov` (26 s), `screen_recording_smart_bullets.mov` (18 s), `screen_recording_workflow.mov` (45 s). v2: cropped, re-encoded, click-to-play on `/features`. Never autoplay (§8.7). |
 
-Prefer the simple set for v1. The complex set is the deeper library, not a dump onto the home page.
+Prefer the simple set for v1. The complex set is the deeper library, not a dump onto the home page. v2 draws on both, chapter by chapter (§7.4).
 
 ### 8.6 Layout
 
@@ -308,15 +381,36 @@ Prefer the simple set for v1. The complex set is the deeper library, not a dump 
 
 ### 8.7 Motion
 
-Calm, physical, optional:
+Responsive, physical, optional. **Motion answers the visitor; it never performs on its own.** (Revised for v2, September 2026.)
 
-- Hero circles can **idle-breathe** (opacity or a 1px lift), staggered 1–8
-- Section accents can **crossfade** as bands enter the viewport
+Tokens live in `css/tokens.css`:
+
+- Durations: quick ~140 ms (hover), base ~280 ms, stage ~420 ms (a slate window rising), sweep ~600 ms (appearance change)
+- Easing: an ease-out curve, plus a mild spring written with CSS `linear()` for rising and pressing
+
+Allowed patterns:
+
+- **Rise:** a slate window comes into focus on the Stage (scale, lift, fade)
+- **Press and glow:** glyphs light like the app’s selected glyph; a small press on `:active`
+- **Spill:** the current slot’s accent lights the surface and ground behind the Stage
+- **Sweep:** Dark ↔ Light revealed left to right (`clip-path`), not a plain fade
+- **Settle:** a band’s header strip slides in and its glyph pops as the band enters the viewport (scroll-driven CSS)
+- **Stagger:** feature cards appear 1 → 8
+- **Drift:** large photos scale in slightly as they enter
+- **Idle breathe** on hero glyphs and **accent crossfade** between bands, as in v1
+- **Page transitions:** cross-document view transitions with the brand, nav, and glyph strips held in place
 - App Store buttons: a small scale on hover
-- `prefers-reduced-motion: reduce` disables all of it
-- No scroll-jacking, no page-long pinned stories, no particle systems
 
-An easter egg is allowed if it is tiny. Example: clicking the app icon cycles the page through the eight accents once. Never autoplay on load.
+Rules:
+
+- Animate `transform`, `opacity`, `filter`, and `clip-path` only
+- Scroll-driven rules sit behind `@supports (animation-timeline: view())`; browsers without them get the finished, static layout
+- `prefers-reduced-motion: reduce` turns every transition into an instant swap and removes scroll-driven animation and view transitions. No information may depend on motion
+- No scroll-jacking, no page-long pinned stories, no particle systems. The `/features` chapter rail is sticky navigation, not a pinned story
+- **No autoplay:** no looping video, no timed carousels, no animation that starts without the visitor doing something. Screen recordings are click-to-play (§8.5)
+- Later decision (§19): short silent loops on the home page, only if they play solely while in view, never under reduced motion, and carry a visible pause control
+
+An easter egg is allowed if it is tiny. Example: clicking the app icon tours the Stage through slates 1–8 once (skipped under reduced motion). Never autoplay on load.
 
 ### 8.8 What “design award” is not
 
@@ -400,13 +494,17 @@ Do not introduce 11ty in v1 unless writing HTML by hand is already painful.
 
 ### 11.2 JavaScript policy
 
-Zero JS on legal pages. Home may have a few dozen lines for:
+Zero JS on legal pages (`/privacy`, later `/terms`).
 
-- `prefers-reduced-motion` already handled in CSS
-- Optional icon easter egg
-- Current year in the footer (or just type the year and update annually)
+v2 budget (approved September 2026): **up to about 150 lines of vanilla JavaScript per page**, loaded with `defer`, no libraries, no build step. Content and core interactions never depend on it: with JavaScript off, every page still renders completely and the Stage, appearance switch, tabs, and chapter links still work. JavaScript may:
 
-No analytics, no font-loading observers, no cookie scripts.
+- preload and decode images on idle so the Stage swaps instantly
+- add keyboard shortcuts (digits 1–8 select a slate on the home page; never ⌘1–⌘8, which switch browser tabs)
+- set a CSS custom property from a control (the before/after divider)
+- power small toys on `/features`: the live mini slate (Clipboard API), clickable cycle bullets, the palette wall re-theme, an IntersectionObserver fallback for the chapter rail
+- run the icon easter egg
+
+`prefers-reduced-motion` stays handled in CSS. No analytics, no font-loading observers, no cookie scripts, **no storage APIs** (`localStorage`, `sessionStorage`, IndexedDB): nothing a visitor does on the site is remembered.
 
 ### 11.3 Proposed tree
 
@@ -432,6 +530,8 @@ slates-site/
 │   └── favicon.ico
 └── fonts/                ← only if self-hosting a display face
 ```
+
+As shipped (v1), pages live in directories (`support/index.html`, `privacy/index.html`, `history/index.html`), with `js/home.js` for the home page. v2 adds `features/index.html`, `images/stage/` for the Stage frames, and `video/` for encoded, click-to-play recordings (no masters; `resources/` stays local). README keeps the current tree.
 
 GitHub Pages pretty URLs: either `support.html` + `/support` via a `support/index.html` pair, or a simple `support/index.html`. Prefer **directories with `index.html`** so `/support` and `/privacy` never show `.html`.
 
@@ -492,6 +592,8 @@ The product promise is no analytics. The site must not be the exception.
 - No third-party iframes
 - Self-host fonts if not using system fonts
 - YouTube / tweets: don’t embed; link out
+- Video is self-hosted on the same host; no third-party players
+- No storage APIs; interactive demos forget everything on reload (§11.2)
 - Acknowledge in `/privacy` that **GitHub Pages** is the host and may process request metadata as part of serving the site; we do not add our own measurement
 
 This is a feature.
@@ -508,6 +610,10 @@ Beautiful is not an excuse to fail basic access:
 - Reduced motion: honor it
 - Support and privacy pages must be readable by VoiceOver in linear order
 - Do not convey meaning by color alone; keep the 1–8 numerals
+- Hover is never the only way in: every Stage and demo state is reachable by focus, click, tap, and keyboard
+- Hidden Stage windows are `visibility: hidden`, not only transparent, so screen readers announce only the current slate
+- Text over photography keeps 4.5:1 contrast (add a scrim if needed)
+- Videos keep visible controls and a text description beside them
 
 ---
 
@@ -537,6 +643,17 @@ A good change is a few dozen lines in one HTML file. If a change needs a design 
 8. Point App Store Connect + the in-app About/Help URL at `/support` and `/privacy`.
 9. Custom domain when the name is owned; 301 from the `github.io` host.
 
+v2 plan (small commits, in order; details in `docs/handoffs/20260922_v2-motion-showcase-features.md`):
+
+1. Motion foundation: tokens, view transitions, app-accurate glyph glow and press, scroll-driven Settle and Stagger on existing bands
+2. The Stage: exports in `images/stage/`, CSS-first picker, idle preloading, status line, keyboard
+3. Appearance: the Stage switch with Sweep; the “Same desk, lights up” band
+4. `/features` skeleton: eight chapters, the rail, nav link, OG card, copy
+5. `/features` interactions: mode tabs, language carousel, palette wall, live mini slate, clickable cycles, ⌘L and ⌘M demos
+6. Recordings: crop, encode, posters, click-to-play
+7. “In the world” strip on the home page
+8. QA against §18, then README and a handoff
+
 ---
 
 ## 18. Acceptance checklist
@@ -552,6 +669,19 @@ A good change is a few dozen lines in one HTML file. If a change needs a design 
 - [ ] OG preview looks like Slates, not a blank title card
 - [ ] Updating FAQ is documented in `README.md` as “edit this file, commit, push”
 
+v2 additions:
+
+- [ ] Hovering, focusing, or tapping any home glyph shows that slate on the Stage, with no flicker between glyphs
+- [ ] Stage works by keyboard (arrows, Esc, digits) and reads correctly in VoiceOver
+- [ ] Dark / Light switch flips the Stage and every window with no positional jump
+- [ ] `/features` covers every chapter in §7.4, each with at least one real capture
+- [ ] With JavaScript off, the Stage, appearance switch, tabs, and chapter links still work
+- [ ] With Reduce Motion, nothing animates and nothing is lost
+- [ ] Nothing plays or loops on its own; recordings are click-to-play
+- [ ] Home initial transfer ≤ ~900 KB; no layout shift from images
+- [ ] Zero third-party requests and zero storage APIs on every page
+- [ ] Complete in Safari 18 (no scroll-driven CSS), Safari 26, Chrome, and Firefox
+
 ---
 
 ## 19. Open decisions
@@ -563,6 +693,16 @@ Record the answer here when chosen; do not block v1 on them.
 3. **Home as Support URL vs `/support`.** Recommendation: freeze **`/support`** as Support URL so home can evolve as a marketing page without surprising App Review.
 4. **Whether to show iOS at all** before Pocket ships.
 5. **Pricing line.** “Available for Free on the Mac App Store.”
+6. **Short silent loops on the home page** (v2 follow-up). Candidates: the list ↔ focus transition; a ⌘L change of list orientation. Owner is interested; decide after `/features` ships and window-cropped, preferably Dark captures exist. Conditions if approved are in §8.7.
+
+**v2 decisions (owner, September 2026):**
+
+- Add `/features` to the IA and nav: **yes** (§7, §7.4)
+- Publish selected device mockups showing real captures: **yes**; licensed on a paid plan (§8.5)
+- Screen recordings: **click-to-play only**, on `/features` (§8.5); home loops deferred (item 6)
+- Motion principles and system: **yes** (§8.1, §8.7)
+- JavaScript budget of about 150 lines per page, CSS-first, no storage: **yes** (§11.2)
+- Palette wall may re-theme `/features` with built-in palettes: **yes** (§8.2)
 
 ---
 

@@ -24,7 +24,11 @@ Details live in `BLUEPRINT.md` §8–§10 and §15. Do not invent a ninth palett
 - Full-bleed color bands; copy stays in ~40–44rem measure
 - Numbered 1–8 circles are as important as color; do not convey meaning by
   color alone
-- Real product photography, not stock, AI device frames, or 3D blobs
+- Real product photography, not stock, AI device frames, or 3D blobs. The
+  owner’s licensed device mockups in `resources/mockups/` are allowed when
+  they show a real Slates capture (`BLUEPRINT.md` §8.5)
+- Motion answers the visitor and never plays on its own: no autoplay, no
+  looping video, no timed carousels (`BLUEPRINT.md` §8.7)
 - `prefers-reduced-motion: reduce` disables motion. No scroll-jacking
 
 If a section could live on a generic startup template (Inter + Lucide +

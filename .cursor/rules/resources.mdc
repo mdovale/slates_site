@@ -31,5 +31,9 @@ Crop tight. Full-desktop frames include Dock/menu bar; the money shot should
 feel like the **window**, not a wallpaper ad. Sample text in these shots is
 starter-catalog-like and is fine to show.
 
-Do **not** autoplay the `.mov` files (`BLUEPRINT.md` §8.7, §14). Do not use
-generic mockup sites or AI device frames instead of these photographs.
+Do **not** autoplay the `.mov` files (`BLUEPRINT.md` §8.7, §14). v2 crops and
+re-encodes them for click-to-play on `/features`. Do not use AI device frames
+or new generic mockups. The licensed composites in `resources/mockups/` may be
+published when they show real captures: the MacBook Pro 16" dark-reflective
+series is the Stage; a few lifestyle frames may fill one strip. Export without
+the vendor prefix in the file name (`BLUEPRINT.md` §8.5).

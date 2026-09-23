@@ -12,7 +12,8 @@ Acceptable when narrow, explained, and based on stable CSS/HTML:
 
 - semantic markup and one or two stylesheets
 - CSS custom properties from the blueprint tokens
-- a few dozen lines of optional home JS (easter egg, footer year)
+- up to about 150 lines of optional vanilla JS per page, never needed to
+  render (`BLUEPRINT.md` §11.2); zero on `/privacy`
 
 Stop when the only path is:
 

@@ -27,9 +27,12 @@ alwaysApply: true
 
 ## JavaScript
 
-Zero JS on `/privacy` (and later `/terms`). Home may have a few dozen lines
-for an optional icon easter egg or footer year. No analytics, font-loading
-observers, or cookie scripts.
+Zero JS on `/privacy` (and later `/terms`). Other pages may use up to about
+150 lines of vanilla JS each (`BLUEPRINT.md` §11.2): `defer`, no libraries,
+never needed to render or read content. Core interactions (the Stage,
+appearance switch, tabs, chapter links) are CSS-first and work with JS off.
+No analytics, font-loading observers, cookie scripts, or storage APIs
+(`localStorage`, `sessionStorage`, IndexedDB).
 
-Stable URLs: `/`, `/support`, `/privacy`. Never reorganize those three without
-redirects.
+Stable URLs: `/`, `/support`, `/privacy`, plus `/features` and `/history`.
+Never reorganize the first three without redirects.

@@ -978,6 +978,132 @@ a.store:focus-visible {
   }
 }
 
+/* ---------- Same desk, lights up: Dark / Light compare ---------- */
+
+/* Without JavaScript the pair sits side by side. With it, the two stack
+   and a range input sets --split: Light on the left, Dark on the right. */
+.compare {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 60rem;
+  margin: 3rem auto 0;
+}
+
+@media (min-width: 48rem) {
+  .compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.compare figure {
+  margin: 0;
+}
+
+.compare img {
+  width: 100%;
+  border-radius: 3.4% / 5%;
+  box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.55);
+}
+
+.compare figcaption {
+  margin-top: 0.75rem;
+  color: var(--chrome);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.compare-hint {
+  display: none;
+}
+
+.compare.is-live {
+  display: block;
+  position: relative;
+  touch-action: pan-y;
+}
+
+.band:has(.compare.is-live) .compare-hint {
+  display: inline;
+}
+
+.compare.is-live .compare-light {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+
+.compare.is-live .compare-light img {
+  box-shadow: none;
+}
+
+.compare.is-live figcaption {
+  position: absolute;
+  top: 7%;
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.compare.is-live .compare-dark figcaption {
+  right: 5%;
+}
+
+.compare.is-live .compare-light figcaption {
+  left: 5%;
+}
+
+/* The native slider covers the picture: drag anywhere, or use the arrows */
+.compare-range {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.compare.is-live::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 4%;
+  bottom: 4%;
+  left: var(--split);
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.compare.is-live::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: var(--split);
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: -1.25rem 0 0 -1.25rem;
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, #f0ece0 50%, #1c1b14 50%);
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0.4rem 1.2rem rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.compare.is-live:has(.compare-range:focus-visible)::before {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
 /* ---------- Feature eight ---------- */
 
 .features-band {

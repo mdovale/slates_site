@@ -67,6 +67,17 @@
     });
   }
 
+  // Same desk, lights up: stack the pair and let the slider set the split.
+  const compare = document.querySelector(".compare");
+  const range = compare && compare.querySelector(".compare-range");
+  if (range) {
+    const split = () => compare.style.setProperty("--split", `${range.value}%`);
+    range.hidden = false;
+    range.addEventListener("input", split);
+    compare.classList.add("is-live");
+    split();
+  }
+
   // Easter egg: the app icon tours slates 1–8 once, then returns to the list.
   const picture = stage.querySelector(".hero-head picture");
   if (!picture) return;

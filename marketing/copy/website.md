@@ -79,10 +79,6 @@ It is a scratchpad. The text persists until you clear it, but the point is the e
 
 Notes is a library: folders, attachments, sync as a default, a place for things you mean to keep. Slates is eight color-coded pads for the scraps that do not deserve a note. Different job. They can sit next to each other.
 
-### What about Tot?
-
-Tot is a fine, small companion with seven colored dots. Slates is eight pads on a Mac, with Rich and Code modes, clickable cycles, and hex previews — still a scratchpad, not a document app. If Tot already fits your desk, you do not need both. If you want syntax highlighting, smart bullets, or a Mac-first window you can strip and snap, that is the difference.
-
 ### Where does my text live?
 
 On your Mac, in the app’s Application Support folder, unless you enable iCloud sync. Then it lives in iCloud Documents as well. Either way, Slates does not send it to us. We do not have analytics to send it to.

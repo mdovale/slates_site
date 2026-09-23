@@ -6,7 +6,7 @@ There are **two lived-in desks**, not one. Load the pack that matches the shot. 
 
 | Pack | Source | Generated JSON | Use |
 |------|--------|----------------|-----|
-| **Simple** | `slates-simple/` | `generated/marketing-slates-simple.json` | Mac App Store screenshots. Compact window, Tot-like. Brief notes that read as complete. |
+| **Simple** | `slates-simple/` | `generated/marketing-slates-simple.json` | Mac App Store screenshots. Compact, companion-sized window. Brief notes that read as complete. |
 | **Desk** | `slates/` | `generated/marketing-slates-desk.json` | Support website hero: List mode, window maximized. Elaborate notes; photography can frame the first screenful. |
 
 Slot order, modes, fonts, and cycles match across packs so a photographer can switch content without relearning which color is the checklist.
@@ -105,7 +105,7 @@ Restore Backup writes slate text and per-slate fields. It does **not** write app
 | **First-run banner** | Dismissed |
 | **Footer** | On for list hero (numbered glyphs); optional hide for a tighter focus crop |
 | **Default cycle** | Task (clean-install default). Slates 2, 5, and 7 set `primaryCycleID` to Task, Traffic Light, and Kanban |
-| **Window** | **Simple pack:** compact, Tot-like width (~380–480 pt). **Desk pack:** maximized or comfortably large, not native Full Screen unless noted |
+| **Window** | **Simple pack:** compact, companion-sized width (~380–480 pt). **Desk pack:** maximized or comfortably large, not native Full Screen unless noted |
 
 Built-in cycle IDs are stable (`SlateCycleDefaults`). A clean install already has Task, Traffic Light, and Kanban. If a photography Mac has a custom cycle catalog that deleted those entries, restore the built-in catalog in **Settings → Bullets** before shooting slates 2, 5, and 7 — otherwise the glyphs still display as text but will not cycle or contribute to the header progress dash.
 

@@ -292,7 +292,7 @@ Present locally (September 2026):
 | Folder | What is there |
 |--------|----------------|
 | `resources/master-slates-simple/` | 34 PNGs. Start here for v1. Dark and light full-desktop and fullscreen lists, settings (bullets, editor), syntax language selection, collapsed window, and tighter crops: main, plain, code, smart bullets, and rich notes (dictionary, this week, to-do, with code, word lookup). |
-| `resources/master-slates-complex/` | 109 PNGs. Deeper library for later bands: dark and light full-desktop, fullscreen, and window shots; list layouts; menu bar; share sheet; palette; per-slate stills; code crops for eight languages (C++, HTML, JavaScript React, PHP, Ruby, Rust, SCSS, Swift), each also as a small crop; 23 named theme stills, including Slates Dark, Slates Light, Tot Dark, and Tot Light. |
+| `resources/master-slates-complex/` | 109 PNGs. Deeper library for later bands: dark and light full-desktop, fullscreen, and window shots; list layouts; menu bar; share sheet; palette; per-slate stills; code crops for eight languages (C++, HTML, JavaScript React, PHP, Ruby, Rust, SCSS, Swift), each also as a small crop; 23 named theme stills, including Slates Dark and Slates Light. |
 | `resources/mockups/` | 28 device-frame composites (MacBook Air, MacBook Pro, Studio Display, Pro Display XDR). Reference only. The live site still crops real product shots. A generic mockup is not the hero. |
 | `resources/video/` | Three screen recordings: `screen_recording_code-editing.mov`, `screen_recording_smart_bullets.mov`, `screen_recording_workflow.mov`. Do not autoplay them (§8.7). |
 

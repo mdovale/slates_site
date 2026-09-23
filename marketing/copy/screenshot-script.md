@@ -6,7 +6,7 @@ There are two packs. Use the one that matches the shot:
 
 | Shot family | Pack | JSON | Window |
 |-------------|------|------|--------|
-| **App Store** | Simple | `../generated/marketing-slates-simple.json` | Compact, Tot-like (~380–480 pt wide). Notes are brief so they read as complete. |
+| **App Store** | Simple | `../generated/marketing-slates-simple.json` | Compact, companion-sized (~380–480 pt wide). Notes are brief so they read as complete. |
 | **Website hero** | Desk | `../generated/marketing-slates-desk.json` | Maximized (or comfortably large) vertical list. Notes are elaborate; crop the first screenful if needed. |
 
 Do not load the desk pack for App Store frames, or the simple pack for the maximized site hero.
@@ -75,7 +75,7 @@ A website hero is a different crop: native resolution of a maximized list, using
 - iCloud “not signed in” banners
 - Hidden-slate checkboxes in a confusing half-state
 - Multi-cursor / extra carets (hard to read at App Store size; skip)
-- The wrong pack for the shot (elaborate engineer notes in a Tot-sized App Store window, or the maker’s notes as the maximized site hero)
+- The wrong pack for the shot (elaborate engineer notes in a compact App Store window, or the maker’s notes as the maximized site hero)
 
 ## Shot list (App Store — simple pack)
 
@@ -182,7 +182,7 @@ Load `marketing-slates-desk.json`. Maximize the window. Vertical list, all eight
 
 - **In frame:** slates 1–8 of the engineer desk (Thursday standup → Friday scraps)
 - **Appearance:** Dark · Slates Dark for the primary hero; Light pair optional
-- **Why:** the support site should show the product as a full desk, not a Tot-sized companion
+- **Why:** the support site should show the product as a full desk, not a compact companion window
 - **Do not** reuse App Store compact crops as the site hero
 
 Optional site extras, still from the desk pack: focus on slate 4 (Swift marquee tokens) or slate 6 (full Palatino dictionary). Those pads are long on purpose; crop the first screenful.

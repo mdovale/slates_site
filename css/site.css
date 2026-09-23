@@ -142,7 +142,6 @@ kbd {
 /* Menu and setting names, as they read in the app */
 .ui {
   font-weight: 600;
-  white-space: nowrap;
 }
 
 .visually-hidden {

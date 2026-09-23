@@ -1,0 +1,135 @@
+# Marketing slate pack metadata — simple (App Store / compact window).
+# Bodies live in sibling *.md files. Rebuild with:
+#   python3 scripts/build_marketing_slates.py
+# or: make marketing-slates
+#
+# IDs and updatedAt are frozen so rebuilds do not churn git.
+# primaryCycleID accepts a built-in alias (task, traffic-light, kanban, …)
+# or a UUID. Omit or use null to keep the app default (Task on a clean install).
+#
+# Color identity is left to the default palette slot for each index.
+# Do not set colorIndex unless a specific shot needs an override.
+#
+# Keep bodies short enough for a compact window, but not stubby.
+# The elaborate desk pack lives in ../slates/.
+
+slates:
+  - index: 0
+    slug: next-week
+    title: Next week
+    file: 01-next-week.md
+    id: "5A5A5A5A-0000-4000-A000-000000000001"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: regular
+    lineSpacingPreset: normal
+    fontName: Georgia
+    richTextFontName: Georgia
+    lastTextMode: rich
+    primaryCycleID: null
+
+  - index: 1
+    slug: reading-list
+    title: Reading list
+    file: 02-reading-list.md
+    id: "5A5A5A5A-0001-4000-A000-000000000002"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    lastTextMode: rich
+    primaryCycleID: task
+
+  - index: 2
+    slug: studio-codes
+    title: Studio codes
+    file: 03-studio-codes.md
+    id: "5A5A5A5A-0002-4000-A000-000000000003"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: fixedWidth
+    textSizePreset: large
+    lineSpacingPreset: increased20
+    fontName: Menlo
+    monospaceFontName: Menlo
+    lastTextMode: plain
+    primaryCycleID: null
+
+  - index: 3
+    slug: site-tokens
+    title: Site tokens
+    file: 04-site-tokens.md
+    id: "5A5A5A5A-0003-4000-A000-000000000004"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: code
+    language: css
+    fontStyle: fixedWidth
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    fontName: Menlo
+    monospaceFontName: Menlo
+    lastTextMode: plain
+    primaryCycleID: null
+
+  - index: 4
+    slug: site-launch
+    title: Site launch
+    file: 05-site-launch.md
+    id: "5A5A5A5A-0004-4000-A000-000000000005"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    lastTextMode: rich
+    primaryCycleID: traffic-light
+
+  - index: 5
+    slug: slate-dictionary
+    title: Slate (dictionary)
+    file: 06-slate-dictionary.md
+    id: "5A5A5A5A-0005-4000-A000-000000000006"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased20
+    fontName: Palatino
+    richTextFontName: Palatino
+    lastTextMode: rich
+    primaryCycleID: null
+
+  - index: 6
+    slug: this-week
+    title: This week
+    file: 07-this-week.md
+    id: "5A5A5A5A-0006-4000-A000-000000000007"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    lastTextMode: rich
+    primaryCycleID: kanban
+
+  - index: 7
+    slug: sunset
+    title: Sunset
+    file: 08-sunset.md
+    id: "5A5A5A5A-0007-4000-A000-000000000008"
+    updatedAt: "2026-09-20T21:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: regular
+    lineSpacingPreset: normal
+    lastTextMode: rich
+    primaryCycleID: task

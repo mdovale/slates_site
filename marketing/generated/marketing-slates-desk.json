@@ -1,0 +1,111 @@
+{
+  "slots": [
+    {
+      "fontName": "Georgia",
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0000-4000-A000-000000000001",
+      "index": 0,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased10",
+      "richTextFontName": "Georgia",
+      "text": "# Thursday standup · palette picker\n\nAttendees: **Sam** (EM), **Priya**, **Jules**, me. Join is still `meet.example/slate-thu`.\n\nShip the **palette picker** this afternoon if the caret still lands where it should after a swatch click. That is the whole gate. Priya reproduced the jump on a vertical list with wrap off; I cannot get it on the horizontal strip. Treat that as a **list-axis bug**, not a color bug.\n\nSam wants a sentence in the launch notes that a normal person could read. Draft, not poetry:\n\nThe picker writes the token you clicked and **leaves the caret where you were typing**. No new document. No “are you sure.”\n\nOpen questions, in the order they will derail us:\n\n- Does `caretOffset` survive the SwiftUI identity change when the card reloads, or are we restoring a stale `NSRange`? Priya thinks restore; I think we never persist it.\n- If the user clicks a swatch with a **multi-cursor**, do we paint all of them or only the first? Jules said “all of them, obviously.” I said “let me look.” That is not an answer.\n- Quiet hour after lunch is real this week — campus testing the fire alarm in Building 18 between _1:10 and 1:25_. Do not schedule a huddle in that window and then look confused.\n\nLeave the window open. Do not start a new document. The review deck is already lying in the other pad; this one is for the things that will fall out of Slack by 4 p.m.\n\n**Decided**\n\n- Default swatch order follows the palette, not last-used. Last-used is a setting, off for GA.\n- Hex literals stay visible in the editor. The chip is a preview, not a replacement.\n- We will not block on the multi-cursor case. Document it as “first caret” and file a follow-up. Jules made a face and then agreed.\n\n**Still mine**\n\nWalk the _focus → list → focus_ path once on a slate that already has a custom height. If the picker recenters the window I will hear about it in the all-hands Slack, which is a social failure mode and not a stack trace.\n\nIf we slip past 4, Sam will move the external note to Friday and I will owe Priya coffee. The good espresso, not the café on 3.",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0001-4000-A000-000000000002",
+      "index": 1,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "normal",
+      "primaryCycleID": "C7C7C7C7-0001-4000-A000-000000000001",
+      "text": "Weekend · Point Reyes (leave Friday after the 4:36 Caltrain)\n\nBorrowed the house in Inverness. Priya has the gate code in the other pad. Drive is 101 → Sir Francis Drake; do not take the “shortcut” Jules sent, it is a dirt road with a gate that looks open and is not.\n\n[x] Charging brick — USB-C, the 67W, not the brick that only talks to the monitor\n[x] Navy sweater\n[x] Badge sleeve (the weekend guard still wants to see it if we swing by campus Saturday for the leftover swag)\n[ ] Trails map — the paper one in the desk. Phone coverage dies between Olema and the turnoff and I am not arguing with a pin again\n[ ] Spare glasses (titanium pair, case is in the glove box of the Honda, which we are not taking)\n[ ] The book that is not on the phone. Either the Heaney or the one Malik pressed on me in the kitchen. Do not bring both; I will finish neither\n[ ] Soft shell. Forecast is “high fog, then a surprise.” That means rain at 4 p.m. on the west side of the ridge\n[ ] Food for Friday night that does not require a store in Point Reyes Station after 7. Bread, the good butter, oranges, a tin of fish I will pretend is dinner\n[ ] Headlamp. The porch light is decorative\n[ ] Leave-behind: the work laptop. Sam was clear. If I bring it I will “just look at the caret bug” and then it will be Sunday\n\nNotes I will ignore and then need:\n\nHouse Wi-Fi is on a card taped inside the utensil drawer, because of course it is. Guest network, not the owner’s. Do not update the owner’s HomeKit, Jules.\n\nLow tide Saturday is early. If we want the south beach it is a 7:40 start, which means I am the villain, which is fine.\n\nReturn Sunday in time for the 6:10 southbound. Laundry Monday is a fantasy.",
+      "textMode": "plain",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontName": "Menlo",
+      "fontStyle": "fixedWidth",
+      "id": "4A4A4A4A-0002-4000-A000-000000000003",
+      "index": 2,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "increased10",
+      "monospaceFontName": "Menlo",
+      "text": "Building 18 lobby              4182#\nLab after hours (fl 4)         9066#\nBike cage (west)               2291#\nLoading dock (if 18 is dark)   7740#\n\nGuest Wi-Fi\n  orchard-finch\n  7kettle-lark\n\nPackage locker · USPS\n  9400 1134 8821\n  holds through Tuesday; they will return it if I “mean to get it Monday”\n\nVPN one-time (Priya, Thu 11:42)\n  6H4K-WQ19-NCM2\n  copy, paste, copy & clear. Do not leave this sitting in a chat screenshot\n\nNotes, because I will forget the choreography:\n\nLobby 4182 is the keypad under the rusted intercom, not the shiny panel that looks official and calls security. Pound at the end or it just beeps at you like you have never worked here.\n\nAfter-hours lab: badge first, then the PIN, then wait for the second click. If you reverse it the door stays sulky for thirty seconds and you look like you are casing the joint.\n\nBike cage code changes first Monday of the month. 2291 is still October. Confirm on the paper taped to the cage before I trust muscle memory.\n\nGuest network is for Jules’s contractor and for my own phone when the corp SSID is doing a ceremony. Do not join a work video from it and then ask why the captions are haunted.\n\nThe locker is around the corner from the café on 3, which is why I walk past it every day and still let packages expire. Set a reminder that is not this pad. This pad is for the numbers.",
+      "textMode": "plain",
+      "textSizePreset": "larger",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontName": "Menlo",
+      "fontStyle": "fixedWidth",
+      "id": "4A4A4A4A-0003-4000-A000-000000000004",
+      "index": 3,
+      "language": "swift",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "normal",
+      "monospaceFontName": "Menlo",
+      "text": "import SwiftUI\n\n// Marquee tokens for Thursday's palette-picker review.\n// Hex literals stay in source so the in-editor chips match Figma.\n// Do not \"simplify\" these into Color assets before GA — Jules will notice.\n\nenum Marquee {\n    static let ink   = \"#1c1415\"\n    static let coral = \"#ff375f\"\n    static let sand  = \"#f4a261\"\n    static let moss  = \"#30d158\"\n    static let fog   = \"#a8b2c1\"\n    static let paper = \"#f6f1ea\"\n    static let dusk  = \"#3d2b40\"\n    static let gold  = \"#e9c46a\"\n\n    static func css(_ hex: String) -> String {\n        \"background: \\(hex);\"\n    }\n\n    static func token(_ name: String, hex: String) -> String {\n        \"\\(name): \\(hex);\"\n    }\n}\n\nstruct MarqueeSwatch: Identifiable {\n    let id: String\n    let hex: String\n    var css: String { Marquee.css(hex) }\n}\n\nextension Marquee {\n    static let reviewBoard: [MarqueeSwatch] = [\n        .init(id: \"ink\",   hex: ink),\n        .init(id: \"coral\", hex: coral),\n        .init(id: \"sand\",  hex: sand),\n        .init(id: \"moss\",  hex: moss),\n        .init(id: \"fog\",   hex: fog),\n        .init(id: \"paper\", hex: paper),\n        .init(id: \"dusk\",  hex: dusk),\n        .init(id: \"gold\",  hex: gold),\n    ]\n\n    /// Default GA order: palette sequence, not last-used.\n    static var cssVariables: String {\n        reviewBoard\n            .map { token(\"--\\($0.id)\", hex: $0.hex) }\n            .joined(separator: \"\\n\")\n    }\n}\n\n// Follow-ups I will forget if they only live in the PR:\n// - coral/sand contrast on moss chips in Dark\n// - paper is not white; do not let anyone \"correct\" it to #ffffff\n// - gold is for the one promotional moment, not body text",
+      "textMode": "code",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0004-4000-A000-000000000005",
+      "index": 4,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "normal",
+      "primaryCycleID": "C7C7C7C7-0002-4000-A000-000000000002",
+      "text": "Launch review · palette picker GA\n\nSam asked for a board that is not a spreadsheet and is not a vibe. This is the board. Click the lights; do not add a sixth status.\n\n⚪ Write the external note in a sentence a person could read — not “ships caret persistence across identity refresh”\n🟡 A11y pass on the swatch grid: VoiceOver names, not “button 3 of 8”\n🟡 Hex chips still on in Dark; fog-on-dusk was muddy in Jules’s screenshot\n🟢 Caret lands in the same place after a click (Priya’s vertical-list repro is green on my machine as of 10:40)\n🟢 Default order is palette order; last-used is a setting, off\n✅ Copy for the picker empty state (“Eight colors. That’s the map.” — Sam will shorten this)\n✅ Remove the debug swatch named “test coral 2”\n⚪ Multi-cursor: paint first caret only, document it, do not block GA\n🟡 Quiet-hour fire alarm 1:10–1:25 — do not demo in Building 18 then\n🟢 App Store / site shots use the photography pack, not my real slates, not the Help examples\n\nIf something goes red after lunch it is probably the identity-refresh path, not the tokens. Tokens are the easy part, which is why everyone wants to debate them.\n\nFriday: if this is still yellow in more than two places, Sam moves the external note and I owe Priya the espresso that is not the café on 3.",
+      "textMode": "plain",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontName": "Palatino",
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0005-4000-A000-000000000006",
+      "index": 5,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased20",
+      "richTextFontName": "Palatino",
+      "text": "# slate\n**/sleɪt/**\n_noun_ · _verb_ · occasionally _adjective_\n---\n## noun\n**slate** (_plural_ **slates**)\n**1.** _Geology_. A fine-grained, foliated metamorphic rock, typically blue-gray, that splits readily into thin, even plates. It is shale after pressure and time: the same clay, reorganized so that it prefers a plane. Quarried for roofing, for flooring, and for the small tablets on which children once learned their letters and then wiped them away.\n**2.** A tablet of this rock, or a board made in imitation of it, used for writing. The useful property is not permanence. It is that you can fill it, read it, and clear it. Hence **a clean slate**: a surface restored, not a history rewritten.\n**3.** A thin plate of rock used especially to roof a building. _The chapel still wears its original slates, darker after rain._\n**4.** A list of candidates, nominees, or proposed measures, offered as a group rather than as eight separate arguments. _The committee advanced a slate of four._ In this sense the word is American in flavor, and slightly official even when the list was hashed out in a hallway.\n**5.** _Informal, computing_. A single colored scratchpad kept in view among a small, fixed set. Not a file. Not a notebook. A pad you return to because you remember the color, the way you remember which mug is yours.\n---\n## verb\n**slate** (_slated_, _slating_, _slates_)\n**1.** _transitive_. To cover with slate. _They slated the roof before the rains._\n**2.** To designate, appoint, or schedule for a particular time or purpose. _The launch is slated for Thursday._ _She is slated to present in the 4 p.m. slot, which means 4:10._ This is the office verb: dry, a little bureaucratic, hard to replace. You do not “pencil in” a GA.\n**3.** _Chiefly British, transitive_. To criticize severely. _The notices slated the revival._ Rare in California except when someone is being funny on purpose.\n---\n## adjective\n**slate** (_slate-gray_, _slaty_)\nOf the color of the rock: a cool gray with a blue in it, the color of the Bay when the fog has not yet decided. _A slate sky over the lot at Building 18._ Related: **slate blue**, which is trying too hard, and **slaty**, which the geologists prefer.\n---\n## etymology\nMiddle English _slate_, _sclate_, from Old French _esclate_, _esclat_ “splinter, piece split off” (compare modern French _éclat_: a fragment, and also a burst of brilliance, which is a lot to ask of a roofing tile). The geological sense is the oldest in English. The writing-tablet sense follows from the stone’s habit of cleaving into something you can hold in one hand. The political “list” and the scheduling verb come later. **Blank slate** is a calque of Latin _tabula rasa_; **clean slate** is the more domestic cousin, closer to the classroom than to Locke.\n---\n## usage\nPrefer **slated for** when a date or occasion is attached (_slated for Thursday_) and **slated to** when a person or an act follows (_slated to ship_). **Clean slate** is the idiom for a fresh start you can actually perform — wipe the pad. **Blank slate** is the philosophical metaphor, and a little grand for a door code.\nDo not confuse with _slat_, a thin strip of wood. A slat is what a crate is made of. A slate is what you write on, or what you are, or what the sky is doing.\nIn this building one still hears _put it on the slate_ — meaning keep it on the small pad, not in the document that will outlive the week. The other sense, the restaurant sense (a running account, a tab), is not dead. It just migrated to software.\n---\n## see also\n_tabula rasa_ · _clapboard_ · _shingle_ · _blackboard_ · _scratchpad_ · _clean slate_",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0006-4000-A000-000000000007",
+      "index": 6,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "normal",
+      "primaryCycleID": "C7C7C7C7-0003-4000-A000-000000000003",
+      "text": "Sprint board · this week, not the roadmap\n\nSam does not want this in the tracking tool. The tracking tool is where work goes to become a number. This pad is where it is still a thing I might do.\n\n◯ Order the cream linen — Jules’s photo reference is in the thread from Tuesday; the mill’s cutoff is Friday 2 p.m. Pacific or we wear the old backdrop again\n◐ Rework the mark — keep the serif. The sans version looked like every other picker. I said this in the critique and then put the sans on the board anyway; take it off\n● Invoice the gallery for the small prints (personal, not work, which is why it lives here and not in the expense tool)\n● Ship the small prints — packed, labeled, sitting by the door so I will trip over them\n◯ Write the “first caret only” note for multi-cursor so GA does not pretend we did the hard version\n◐ Walk focus → list → focus on a slate with a custom height. If the window recenters, that is the demo-killer\n◐ Point Reyes bag, actually pack it, before the 4:36\n● Tell Priya the 9066 lab code still works after hours; she asked twice\n◯ Skip-level Friday: two sentences on what I want from the next half, not a tour of the caret bug\n\nRules I made up and might keep:\n\nDone (●) means it left the building, not that I thought about it on the shuttle. In progress (◐) means a file is open or a person is waiting. Not started (◯) is allowed to stay empty. Adding a fourth state is how this becomes the tracking tool.",
+      "textMode": "plain",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "4A4A4A4A-0007-4000-A000-000000000008",
+      "index": 7,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "increased10",
+      "text": "SFO → PDX    Friday  6:40 p  (this is next week, not this week — do not pack tonight)\nSeat 14A     boarding 5:55\nGate C3      (was C7, then C3, then “see screens”)\nChange to the 4:10 shuttle if standup runs; do not do both heroics\n\n4:36 Caltrain south → Millbrae if Point Reyes is still on. If it is not on, this pad will still say it is on.\n\nOat milk, stamps, the good tape. The tape is not at the office. The stamps are not at home. This is a closed system.\n\nSkip-level, Friday 9:30, 20 minutes, Sam’s skip. Do not open with the caret. Open with: I want the picker to stay boring after GA. Boring is the achievement. Then, if there is air, the multi-cursor follow-up.\n\nMalik in the kitchen: “just put it in Notes.” I did not. This is not a disagreement about apps. It is a disagreement about how many things I am willing to hunt.\n\nEspresso for Priya if we ship — not café on 3. The one on the way to the Caltrain. She takes it with water, not with a pastry I will eat.\n\nQuiet hour 1:10–1:25 is a fire alarm, not a calendar courtesy.\n\nThe book: Heaney, opened at “The Railway Children,” which is sentimental and I do not care.\n\nDo not join the 4 p.m. from the guest network. Captions become folklore.\n\nReturn the badge sleeve to the bowl by the door. Weekend guard is new and earnest.",
+      "textMode": "plain",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-19T19:00:00Z"
+    }
+  ]
+}

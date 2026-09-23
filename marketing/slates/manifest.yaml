@@ -1,0 +1,136 @@
+# Marketing slate pack metadata — desk (website / maximized list).
+# Elaborate Bay Area engineer desk. Bodies live in sibling *.md files.
+# Rebuild with:
+#   python3 scripts/build_marketing_slates.py
+# or: make marketing-slates
+# Output: docs/marketing/generated/marketing-slates-desk.json
+#
+# The brief App Store pack lives in ../slates-simple/.
+#
+# IDs and updatedAt are frozen so rebuilds do not churn git.
+# primaryCycleID accepts a built-in alias (task, traffic-light, kanban, …)
+# or a UUID. Omit or use null to keep the app default (Task on a clean install).
+#
+# Color identity is left to the default palette slot for each index.
+# Do not set colorIndex unless a specific shot needs an override.
+
+slates:
+  - index: 0
+    slug: thursday-standup
+    title: Thursday standup
+    file: 01-thursday-standup.md
+    id: "4A4A4A4A-0000-4000-A000-000000000001"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    fontName: Georgia
+    richTextFontName: Georgia
+    lastTextMode: rich
+    primaryCycleID: null
+
+  - index: 1
+    slug: weekend-bag
+    title: Weekend bag
+    file: 02-weekend-bag.md
+    id: "4A4A4A4A-0001-4000-A000-000000000002"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: normal
+    lastTextMode: plain
+    primaryCycleID: task
+
+  - index: 2
+    slug: door-codes
+    title: Door codes
+    file: 03-door-codes.md
+    id: "4A4A4A4A-0002-4000-A000-000000000003"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: fixedWidth
+    textSizePreset: larger
+    lineSpacingPreset: increased10
+    fontName: Menlo
+    monospaceFontName: Menlo
+    lastTextMode: plain
+    primaryCycleID: null
+
+  - index: 3
+    slug: marquee-palette
+    title: Marquee palette
+    file: 04-marquee-palette.md
+    id: "4A4A4A4A-0003-4000-A000-000000000004"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: code
+    language: swift
+    fontStyle: fixedWidth
+    textSizePreset: large
+    lineSpacingPreset: normal
+    fontName: Menlo
+    monospaceFontName: Menlo
+    lastTextMode: plain
+    primaryCycleID: null
+
+  - index: 4
+    slug: launch-review
+    title: Launch review
+    file: 05-launch-review.md
+    id: "4A4A4A4A-0004-4000-A000-000000000005"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: normal
+    lastTextMode: plain
+    primaryCycleID: traffic-light
+
+  - index: 5
+    slug: slate-dictionary
+    title: Slate (dictionary)
+    file: 06-slate-dictionary.md
+    id: "4A4A4A4A-0005-4000-A000-000000000006"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: rich
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased20
+    fontName: Palatino
+    richTextFontName: Palatino
+    lastTextMode: rich
+    primaryCycleID: null
+
+  - index: 6
+    slug: sprint-board
+    title: Sprint board
+    file: 07-sprint-board.md
+    id: "4A4A4A4A-0006-4000-A000-000000000007"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: normal
+    lastTextMode: plain
+    primaryCycleID: kanban
+
+  - index: 7
+    slug: friday-scraps
+    title: Friday scraps
+    file: 08-friday-scraps.md
+    id: "4A4A4A4A-0007-4000-A000-000000000008"
+    updatedAt: "2026-09-19T19:00:00Z"
+    textMode: plain
+    language: auto
+    fontStyle: regular
+    textSizePreset: large
+    lineSpacingPreset: increased10
+    lastTextMode: plain
+    primaryCycleID: null

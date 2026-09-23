@@ -1,0 +1,112 @@
+{
+  "slots": [
+    {
+      "fontName": "Georgia",
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0000-4000-A000-000000000001",
+      "index": 0,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "normal",
+      "richTextFontName": "Georgia",
+      "text": "# **Next Week**\n\nLet’s get inspired!\n\n# **Notes**\n\n**Slate | sleɪt |**\n_noun_\n**1.** _Geology._ A fine-grained rock easily split into smooth, flat pieces.\n\n**2.** A writing tablet of this stone. The useful property is not permanence. It is that you can fill it, read it, and clear it. Hence **a clean slate**.\n\n**3.** _Informal._ A colored scratchpad. You remember the color, the way you remember which mug is yours.\n\n\n### **Web Links**\n\nReally cool software:\n📌 <https://github.com/mdovale>\n\nA different kind of portfolio:\n📌 <https://www.migueldovale.com/>\n\n\n### **Notable Quotes**\n\n“Start where you are. Use what you have. Do what you can.” ~ Arthur Ashe\n\n“Have no fear of perfection, you'll never reach it.” ~ Salvador Dalí\n\n“Innovation is saying no to a thousand things.” ~ Steve Jobs",
+      "textMode": "rich",
+      "textSizePreset": "regular",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0001-4000-A000-000000000002",
+      "index": 1,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased10",
+      "primaryCycleID": "C7C7C7C7-0001-4000-A000-000000000001",
+      "text": "# **To read**\n\nThe pile on the chair counts. The pile on the phone does not.\n\n[x] _A Pattern Language_ — the shop-window chapter\n[x] Tufte, the train-schedule page\n[ ] Calvino, _Invisible Cities_ — not the new translation\n[ ] The Heaney, opened at “The Railway Children”\n[ ] Sontag on style. Pencil only.\n[ ] That essay on constraint. The tab is still open.\n[ ] One poetry collection that is **not** on the phone\n[ ] Color notes, then the Sunset ramp\n[ ] One short book I will actually finish\n\nLibrary Thursday. The Heaney is mine.",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontName": "Menlo",
+      "fontStyle": "fixedWidth",
+      "id": "5A5A5A5A-0002-4000-A000-000000000003",
+      "index": 2,
+      "language": "auto",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "increased20",
+      "monospaceFontName": "Menlo",
+      "text": "Studio\nDoor                  2048#\nAlarm (stay)          7193#\nLocker                4410#\n\nWi-Fi\n  lagoon-guest\n  8straw-gold\n  guest network only\n\nInvite (one-time)\n  6H4K-WQ19\n  copy, paste, copy & clear",
+      "textMode": "plain",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontName": "Menlo",
+      "fontStyle": "fixedWidth",
+      "id": "5A5A5A5A-0003-4000-A000-000000000004",
+      "index": 3,
+      "language": "css",
+      "lastTextMode": "plain",
+      "lineSpacingPreset": "increased10",
+      "monospaceFontName": "Menlo",
+      "text": "/* Personal site. Quiet on purpose.\n   Body on paper, links in lagoon.\n   Do not \"correct\" paper to #ffffff. */\n\n:root {\n  --ink:    #1c1415;\n  --paper:  #f6f1ea;\n  --muted:  #6b645c;\n  --rule:   #d9d0c4;\n  --link:   #2d7a99;\n}\n\nbody {\n  color: var(--ink);\n  background: var(--paper);\n  font-family: Georgia, serif;\n}\n\na { color: var(--link); }\nhr { border-color: var(--rule); }\n\nh1 { letter-spacing: 0.02em; }\n.caption { color: var(--muted); }\n\n@media (prefers-color-scheme: dark) {\n  :root { --paper: #1c1415; --ink: #f6f1ea; }\n}",
+      "textMode": "code",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0004-4000-A000-000000000005",
+      "index": 4,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased10",
+      "primaryCycleID": "C7C7C7C7-0002-4000-A000-000000000002",
+      "text": "# **Site launch**\n\nShip the quiet version. No hero video. No “are you sure.”\n\n⚪ Write the about sentence a person could **read**\n🟡 Proof the reading list — titles _italic_, authors not\n🟢 Favicon is the lagoon chip, not a letter\n✅ Remove the “coming soon” banner\n⚪ 404: one line, then a link home\n🟡 Contrast pass on straw-on-paper\n🟢 Domain is paid through next year\n⚪ Tell the reading-list page to stop apologizing\n🟡 Print a proof. Read it on paper, not the screen\n\nFriday, or it slips.",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontName": "Palatino",
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0005-4000-A000-000000000006",
+      "index": 5,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased20",
+      "richTextFontName": "Palatino",
+      "text": "# slate\n**/sleɪt/**\n_noun_ · _verb_\n\n**1.** _Geology._ A fine-grained rock that splits into thin plates. Roofing, flooring, and the small tablets children once wrote on and wiped away.\n\n**2.** A writing tablet of this stone. The useful property is not permanence. It is that you can fill it, read it, and clear it. Hence **a clean slate**.\n\n**3.** _Informal._ A colored scratchpad among a small, fixed set. You remember the color, the way you remember which mug is yours.\n\n## verb\n\n**1.** To designate or schedule. _The site is slated for Friday._\n\n**2.** _Chiefly British._ To criticize severely.\n\n---\nMiddle English from Old French _esclate_, a splinter. Related: **clean slate**, _tabula rasa_, [scratchpad](https://en.wikipedia.org/wiki/Scratchpad).",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0006-4000-A000-000000000007",
+      "index": 6,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "increased10",
+      "primaryCycleID": "C7C7C7C7-0003-4000-A000-000000000003",
+      "text": "# **This week**\n\nDone means it _left the desk_. Not that I thought about it.\n\n◯ Finish the about sentence\n◐ Sunset palette — name the hinge color\n● Library books, actually returned\n◯ Print the reading list and pin it\n◐ Personal site, second pass on type\n● Invoice the small prints\n◯ Write the domain people; auto-renew mail is a trap\n◐ Color notes before I touch coral\n\nA fourth state is how this becomes a tracking tool.",
+      "textMode": "rich",
+      "textSizePreset": "large",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    },
+    {
+      "fontStyle": "regular",
+      "id": "5A5A5A5A-0007-4000-A000-000000000008",
+      "index": 7,
+      "language": "auto",
+      "lastTextMode": "rich",
+      "lineSpacingPreset": "normal",
+      "primaryCycleID": "C7C7C7C7-0001-4000-A000-000000000001",
+      "text": "# **Sunset**\n\nLagoon to coral. Warm afternoon light. Eight steps. Do not skip.\n\n`#3e9cbf`  `#72c5d7`  `#a7ecf2`  `#d9e4b0`  `#f2c43d`  `#f1a33a`  `#f17c37`  `#f26d50`\n\nStraw `#d9e4b0` is the hinge. Gold `#f2c43d` is noon, not body. Coral `#f26d50` is the last light. Lagoon `#3e9cbf` holds the sky.\n\n### **Ramp**\n\n```css\n:root {\n  --lagoon:    #3e9cbf;\n  --shallows:  #72c5d7;\n  --seaglass:  #a7ecf2;\n  --straw:     #d9e4b0;\n  --gold:      #f2c43d;\n  --amber:     #f1a33a;\n  --ember:     #f17c37;\n  --coral:     #f26d50;\n}\n```\n\n### **Still open**\n\n[x] Keep the eight in order\n[ ] Straw too lime against paper?\n[ ] Coral on lagoon — a mark, never a paragraph\n\nNotes: 📌 [Color theory](https://en.wikipedia.org/wiki/Color_theory)",
+      "textMode": "rich",
+      "textSizePreset": "regular",
+      "updatedAt": "2026-09-20T21:00:00Z"
+    }
+  ]
+}

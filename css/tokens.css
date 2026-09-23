@@ -1,0 +1,104 @@
+/*
+ * Slates palette tokens.
+ * Hex values match the app's built-in Slates Dark and Slates Light palettes.
+ * Do not add a ninth color. See BLUEPRINT.md §8.2.
+ */
+
+:root {
+  /* Slates Dark: accents, the eight identities */
+  --slate-1: #ffd600;
+  --slate-2: #ff9230;
+  --slate-3: #ff375f;
+  --slate-4: #db34f2;
+  --slate-5: #0091ff;
+  --slate-6: #00d2e0;
+  --slate-7: #30d158;
+  --slate-8: #797979;
+
+  /* Slates Dark: chrome (text and icons on dark UI) */
+  --chrome-1: #ffee99;
+  --chrome-2: #ffd3ad;
+  --chrome-3: #ffafbf;
+  --chrome-4: #f1aef9;
+  --chrome-5: #99d3ff;
+  --chrome-6: #99edf3;
+  --chrome-7: #adedbd;
+  --chrome-8: #e7e7e7;
+
+  /* Slates Dark: slate backgrounds */
+  --bg-1: #1c1b14;
+  --bg-2: #1c1814;
+  --bg-3: #1c1415;
+  --bg-4: #1b141c;
+  --bg-5: #14181c;
+  --bg-6: #141c1c;
+  --bg-7: #141c16;
+  --bg-8: #131313;
+
+  /* Slates Dark: slate headers */
+  --header-1: #463e18;
+  --header-2: #46311e;
+  --header-3: #461e26;
+  --header-4: #401e44;
+  --header-5: #183246;
+  --header-6: #193f42;
+  --header-7: #1e4026;
+  --header-8: #2b2b2b;
+
+  /* Slates Dark: digit drawn on a numbered circle */
+  --digit-1: #1c1b14;
+  --digit-2: #1c1814;
+  --digit-3: #1c1415;
+  --digit-4: #1b141c;
+  --digit-5: #14181c;
+  --digit-6: #141c1c;
+  --digit-7: #141c16;
+  --digit-8: #131313;
+
+  /* Slates Light: washes, headers, chrome (long reading on /privacy) */
+  --light-bg-1: #f0ece0;
+  --light-bg-2: #f0e7e0;
+  --light-bg-3: #f0e0e3;
+  --light-bg-4: #eee0ef;
+  --light-bg-5: #e0e8ef;
+  --light-bg-6: #e0efef;
+  --light-bg-7: #e0efe3;
+  --light-bg-8: #f9f9f9;
+
+  --light-header-1: #e0d4a3;
+  --light-header-2: #e0c2a7;
+  --light-header-3: #e0a7b2;
+  --light-header-4: #d6a8dc;
+  --light-header-5: #a3c3e0;
+  --light-header-6: #a3d7db;
+  --light-header-7: #a8dab5;
+  --light-header-8: #fefefe;
+
+  --light-chrome-1: #806b00;
+  --light-chrome-2: #804918;
+  --light-chrome-3: #801c30;
+  --light-chrome-4: #6e1a79;
+  --light-chrome-5: #004880;
+  --light-chrome-6: #006970;
+  --light-chrome-7: #18682c;
+  --light-chrome-8: #7f7f7f;
+
+  /* Page chrome */
+  --ground: #000000;
+  --ground-raised: #131313;
+  --ink: #ffffff;
+  --ink-soft: #e7e7e7;
+  --ink-dark: #141414;
+  --muted: #808080;
+
+  /* Type */
+  --font-display: "Outfit", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Layout */
+  --measure: 42rem;
+  --wide: 72rem;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --band-pad: clamp(4rem, 9vw, 6rem);
+}

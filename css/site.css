@@ -449,6 +449,17 @@ main {
   inset: 0;
 }
 
+/* Each layer is its own stacking context; Light always paints above Dark */
+.layer-dark,
+.mode-layer-dark {
+  z-index: 1;
+}
+
+.layer-light,
+.mode-layer-light {
+  z-index: 2;
+}
+
 .scr img,
 .scr-list img {
   width: 100%;
@@ -506,7 +517,7 @@ main {
 }
 
 .picker,
-.look {
+.seg {
   min-width: 0;
   margin: 0;
   padding: 0;
@@ -514,7 +525,7 @@ main {
 }
 
 .picker input,
-.look input {
+.seg input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -523,7 +534,7 @@ main {
 }
 
 .picks,
-.look {
+.seg {
   display: flex;
   align-items: center;
   border-radius: 0.8rem;
@@ -605,13 +616,13 @@ main {
   opacity: 0.75;
 }
 
-/* Appearance switch */
-.look {
+/* Segmented control: the appearance switch, and the demos on /features */
+.seg {
   padding: 0.2rem;
   font-size: 0.9rem;
 }
 
-.look label {
+.seg label {
   padding: 0.45rem 0.85rem;
   border-radius: 0.6rem;
   color: #a0a0a0;
@@ -621,17 +632,18 @@ main {
     color var(--t-quick) var(--ease-out);
 }
 
-.look label:hover {
+.seg label:hover {
   color: var(--ink);
 }
 
-.look input:focus-visible + label {
-  outline: 3px solid var(--hero-accent);
+.seg input:focus-visible + label {
+  outline: 3px solid var(--hero-accent, var(--accent));
   outline-offset: -1px;
 }
 
-.look input:checked + label,
-.look:not(:has(:checked)) label[for="look-dark"] {
+/* An untouched Dark | Light switch shows the appearance the demo follows */
+.seg input:checked + label,
+.look:not(:has(:checked)) label:first-of-type {
   background: #333;
   color: var(--ink);
 }
@@ -841,12 +853,12 @@ main {
     --spill: color-mix(in srgb, var(--hero-accent) 22%, #fff3dc);
   }
 
-  .look:not(:has(:checked)) label[for="look-dark"] {
+  .look:not(:has(:checked)) label:first-of-type {
     background: none;
     color: #a0a0a0;
   }
 
-  .look:not(:has(:checked)) label[for="look-light"] {
+  .look:not(:has(:checked)) label:last-of-type {
     background: #333;
     color: var(--ink);
   }
@@ -1157,6 +1169,20 @@ a.store:focus-visible {
   font-size: 1.1rem;
 }
 
+.features-more {
+  margin: 2.5rem 0 0;
+  text-align: center;
+}
+
+.features-more a {
+  color: var(--ink);
+  text-decoration-color: var(--slate-8);
+}
+
+.features-more a::after {
+  content: " →";
+}
+
 /* ---------- Home: help, closing ---------- */
 
 .teasers {
@@ -1334,6 +1360,873 @@ a.store:focus-visible {
 
 .release li + li {
   margin-top: 0.45em;
+}
+
+/* ---------- Features: chapters ---------- */
+
+/*
+ * Chapter text reads --band-ink / --band-soft so the palette wall can
+ * re-theme a band with a light palette and keep the text legible.
+ */
+.chapter {
+  color: var(--band-ink, var(--ink));
+  transition: background-color var(--t-base) var(--ease-out);
+}
+
+.chapter .band-head {
+  transition:
+    background-color var(--t-base) var(--ease-out),
+    color var(--t-base) var(--ease-out);
+}
+
+.chapter p,
+.chapter dd {
+  color: var(--band-soft, var(--ink-soft));
+}
+
+.chapter h3 {
+  color: var(--band-ink, var(--ink));
+}
+
+.chapter .band-body > * + * {
+  margin-top: clamp(2.75rem, 6vw, 4.25rem);
+}
+
+.chapter code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--chrome);
+}
+
+.showcase {
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+.showcase h3 {
+  margin-bottom: 0.4rem;
+}
+
+.subs {
+  display: grid;
+  gap: 3rem 3.5rem;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 52rem) {
+  .subs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .subs > li:has(.clip-wide) {
+    grid-column: 1 / -1;
+  }
+}
+
+.subs picture,
+.subs .clip {
+  display: block;
+  margin: 0 0 1.25rem;
+}
+
+.subs h3 {
+  margin-bottom: 0.4rem;
+}
+
+.subs p {
+  font-size: 1.05rem;
+}
+
+.win-shot img,
+.panel-shot img,
+.tall-shot img {
+  border-radius: 0.9rem;
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.panel-shot img {
+  border-radius: 0.7rem;
+}
+
+.tall-shot img {
+  max-width: 15rem;
+  margin-inline: auto;
+}
+
+.pair {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pair-shot {
+  margin: 0;
+}
+
+.pair-shot figcaption {
+  margin-top: 0.9rem;
+  color: var(--chrome);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.js-only {
+  display: none;
+}
+
+.has-js .js-only {
+  display: inline;
+}
+
+/* A shared toolbar row above a demo */
+.demo-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.demo-key {
+  color: var(--chrome);
+  font-size: 0.9rem;
+}
+
+/* ----- The rail: a sticky glyph toolbar that tracks the chapter ----- */
+
+.chapters {
+  position: relative;
+}
+
+.rail {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--ground);
+  border-bottom: 1px solid var(--header-8);
+}
+
+.chapter {
+  scroll-margin-top: 3rem;
+}
+
+.rail ol {
+  display: flex;
+  justify-content: center;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.45rem var(--gutter);
+  list-style: none;
+}
+
+.rail a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 0.55rem;
+  color: var(--chrome);
+  text-decoration: none;
+}
+
+.rail .dot {
+  --size: 1.7rem;
+  position: relative;
+  opacity: 0.45;
+  transition:
+    opacity var(--t-quick) var(--ease-out),
+    transform var(--t-quick) var(--ease-spring);
+}
+
+.rail .dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 0 0.3rem color-mix(in srgb, var(--accent) 70%, transparent),
+    0 0 1.1rem color-mix(in srgb, var(--accent) 55%, transparent);
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+
+.rail a:hover .dot {
+  opacity: 0.85;
+}
+
+.rail a:active .dot {
+  transform: scale(0.94);
+}
+
+.rail a[aria-current] .dot {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.rail a[aria-current] .dot::after {
+  opacity: 1;
+}
+
+.rail-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (min-width: 80rem) {
+  /* A zero-height sticky anchor holds the vertical rail near mid-screen
+     (the rail is about 20rem tall) and never above the first chapter */
+  .chapter {
+    scroll-margin-top: 0;
+  }
+
+  .rail {
+    top: calc(50vh - 10rem);
+    height: 0;
+    background: none;
+    border: 0;
+  }
+
+  .rail ol {
+    position: absolute;
+    left: 1rem;
+    top: 3.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.4rem;
+    border-radius: 0.9rem;
+    background: #161616;
+    box-shadow:
+      inset 0 0 0 1px #2b2b2b,
+      0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+  }
+
+  .rail-label {
+    left: calc(100% + 0.75rem);
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    padding: 0.3rem 0.65rem;
+    border-radius: 0.45rem;
+    background: #161616;
+    box-shadow: inset 0 0 0 1px #2b2b2b;
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    pointer-events: none;
+    transition:
+      opacity var(--t-quick) var(--ease-out),
+      transform var(--t-quick) var(--ease-out);
+  }
+
+  .rail a:hover .rail-label,
+  .rail a:focus-visible .rail-label {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Without JavaScript, view timelines light the chapter in view */
+@supports (timeline-scope: --ch1) and (animation-timeline: view()) {
+  .chapters {
+    timeline-scope: --ch1, --ch2, --ch3, --ch4, --ch5, --ch6, --ch7, --ch8;
+  }
+
+  #color { view-timeline-name: --ch1; }
+  #copy { view-timeline-name: --ch2; }
+  #modes { view-timeline-name: --ch3; }
+  #code { view-timeline-name: --ch4; }
+  #bullets { view-timeline-name: --ch5; }
+  #layout { view-timeline-name: --ch6; }
+  #anywhere { view-timeline-name: --ch7; }
+  #private { view-timeline-name: --ch8; }
+
+  .rail .dot {
+    animation: rail-lit linear none;
+    animation-range: cover 50vh cover calc(100% - 50vh);
+  }
+
+  .rail .slot-1 .dot { animation-timeline: --ch1; }
+  .rail .slot-2 .dot { animation-timeline: --ch2; }
+  .rail .slot-3 .dot { animation-timeline: --ch3; }
+  .rail .slot-4 .dot { animation-timeline: --ch4; }
+  .rail .slot-5 .dot { animation-timeline: --ch5; }
+  .rail .slot-6 .dot { animation-timeline: --ch6; }
+  .rail .slot-7 .dot { animation-timeline: --ch7; }
+  .rail .slot-8 .dot { animation-timeline: --ch8; }
+}
+
+@keyframes rail-lit {
+  from, to { opacity: 1; }
+}
+
+/* ----- 1 · Palette wall ----- */
+
+.palette-row {
+  display: flex;
+  gap: 0.9rem;
+  margin: 1.75rem 0 0;
+  padding: 0.5rem 0.25rem 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.palette-row li {
+  flex: none;
+  width: 7.25rem;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.palette-row img {
+  width: 100%;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.45);
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+.palette-row span {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--band-soft, var(--ink-soft));
+  font-size: 0.85rem;
+}
+
+.palette-row button {
+  display: block;
+  width: 100%;
+  padding: 0.3rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.palette-row button:hover img {
+  transform: translateY(-4px);
+}
+
+.palette-row button:active img {
+  transform: scale(0.96);
+}
+
+.palette-row button[aria-pressed="true"] img {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.palette-row button[aria-pressed="true"] span {
+  color: var(--chrome);
+}
+
+/* ----- 2 · A live mini slate ----- */
+
+.mini-slate {
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background: var(--wash);
+  color: var(--band-ink, var(--ink));
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.45),
+    0 0 0 1px color-mix(in srgb, var(--chrome) 22%, transparent);
+  transition: background-color var(--t-base) var(--ease-out);
+}
+
+.mini-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.6rem 0.4rem 0.75rem;
+  background: var(--header);
+  color: var(--chrome);
+  font-size: 0.9rem;
+  transition: background-color var(--t-base) var(--ease-out);
+}
+
+.mini-head .dot {
+  --size: 1.35rem;
+}
+
+.mini-actions {
+  display: flex;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.mini-actions button {
+  padding: 0.3rem 0.7rem;
+  border: 0;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--chrome) 16%, transparent);
+  color: var(--chrome);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+.mini-actions button:hover {
+  background: color-mix(in srgb, var(--chrome) 26%, transparent);
+}
+
+.mini-actions button:active {
+  transform: scale(0.94);
+}
+
+.mini-slate textarea {
+  display: block;
+  width: 100%;
+  min-height: 15rem;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 0;
+  resize: vertical;
+  background: transparent;
+  color: inherit;
+  font: 1rem/1.5 var(--font-mono);
+  caret-color: var(--accent);
+}
+
+.mini-slate textarea:focus-visible {
+  outline: 0;
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.chapter .mini-foot {
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  border-top: 1px solid color-mix(in srgb, var(--chrome) 18%, transparent);
+  color: var(--chrome);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-status:not(:empty)::before {
+  content: "· ";
+}
+
+/* ----- 3 · Mode tabs over real captures ----- */
+
+.mode-stage,
+.lang-stage,
+.layout-stage {
+  position: relative;
+  margin-inline: auto;
+}
+
+.mode-stage {
+  max-width: 34rem;
+  aspect-ratio: 1000 / 1029;
+}
+
+.mode-layer,
+.m,
+.code,
+.lay {
+  position: absolute;
+  inset: 0;
+}
+
+.m img,
+.code img,
+.lay img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.9rem;
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Same window frame, so the outgoing capture waits under the incoming one */
+.m,
+.code {
+  display: none;
+  opacity: 0;
+  transition:
+    opacity 0s var(--t-base),
+    display 0s var(--t-base) allow-discrete;
+}
+
+.modes:has(#mode-plain:checked) .m-plain,
+.modes:has(#mode-rich:checked) .m-rich,
+.modes:has(#mode-code:checked) .m-code,
+.langs:has(#lang-swift:checked) .l-swift,
+.langs:has(#lang-rust:checked) .l-rust,
+.langs:has(#lang-cpp:checked) .l-cpp,
+.langs:has(#lang-javascriptreact:checked) .l-javascriptreact,
+.langs:has(#lang-php:checked) .l-php,
+.langs:has(#lang-ruby:checked) .l-ruby,
+.langs:has(#lang-scss:checked) .l-scss,
+.langs:has(#lang-html:checked) .l-html {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    display 0s allow-discrete;
+}
+
+@starting-style {
+  .modes:has(#mode-plain:checked) .m-plain,
+  .modes:has(#mode-rich:checked) .m-rich,
+  .modes:has(#mode-code:checked) .m-code,
+  .langs:has(#lang-swift:checked) .l-swift,
+  .langs:has(#lang-rust:checked) .l-rust,
+  .langs:has(#lang-cpp:checked) .l-cpp,
+  .langs:has(#lang-javascriptreact:checked) .l-javascriptreact,
+  .langs:has(#lang-php:checked) .l-php,
+  .langs:has(#lang-ruby:checked) .l-ruby,
+  .langs:has(#lang-scss:checked) .l-scss,
+  .langs:has(#lang-html:checked) .l-html {
+    opacity: 0;
+  }
+}
+
+/* Sweep to Light, as on the Stage; follows prefers-color-scheme until picked */
+.mode-layer-light {
+  display: none;
+  clip-path: inset(0 0 0 100%);
+  transition:
+    clip-path var(--t-sweep) var(--ease-out),
+    display 0s linear var(--t-sweep) allow-discrete;
+}
+
+.modes:has(#mode-light:checked) .mode-layer-light {
+  display: block;
+  clip-path: inset(0);
+  transition:
+    clip-path var(--t-sweep) var(--ease-out),
+    display 0s allow-discrete;
+}
+
+@starting-style {
+  .modes:has(#mode-light:checked) .mode-layer-light {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .modes:not(:has(#mode-dark:checked)) .mode-layer-light {
+    display: block;
+    clip-path: inset(0);
+  }
+}
+
+.mode-keys {
+  min-height: 1.5em;
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+
+.chapter .mode-keys {
+  color: var(--chrome);
+  font-size: 0.95rem;
+}
+
+.mk {
+  display: none;
+}
+
+.modes:has(#mode-plain:checked) .mk-plain,
+.modes:has(#mode-rich:checked) .mk-rich,
+.modes:has(#mode-code:checked) .mk-code {
+  display: inline;
+}
+
+/* ----- 4 · The language picker ----- */
+
+.langs {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .langs {
+    grid-template-columns: 13rem 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Styled like the app's language menu */
+.lang-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.35rem;
+  border: 0;
+  border-radius: 0.75rem;
+  background: #1e1e1e;
+  box-shadow:
+    inset 0 0 0 1px #333,
+    0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 52rem) {
+  .lang-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+.lang-list legend {
+  float: left;
+  width: 100%;
+  padding: 0.3rem 0.6rem 0.4rem 1.7rem;
+  color: #8a8a8a;
+  font-size: 0.8rem;
+}
+
+.lang-list input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lang-list label {
+  position: relative;
+  padding: 0.3rem 0.7rem 0.3rem 1.7rem;
+  border-radius: 0.4rem;
+  color: #e7e7e7;
+  cursor: pointer;
+}
+
+.lang-list label:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-list input:checked + label {
+  background: color-mix(in srgb, var(--accent) 78%, #000);
+  color: #fff;
+}
+
+.lang-list input:checked + label::before {
+  content: "✓";
+  position: absolute;
+  left: 0.6rem;
+}
+
+.lang-list input:focus-visible + label {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.lang-stage {
+  width: 100%;
+  max-width: 36rem;
+  aspect-ratio: 900 / 958;
+}
+
+.lang-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: color-mix(in srgb, var(--band-ink, #fff) 58%, transparent);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.lang-cloud .shown {
+  color: var(--chrome);
+}
+
+/* ----- 5 · Clickable cycle bullets ----- */
+
+.cycles-demo {
+  align-items: start;
+}
+
+.bullets {
+  margin: 0;
+  padding: 0.9rem 1.1rem 1rem;
+  list-style: none;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.bullets li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  transition: color var(--t-base) var(--ease-out);
+}
+
+.bullets li.is-done {
+  color: color-mix(in srgb, currentColor 55%, transparent);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, currentColor 60%, transparent);
+}
+
+.bullet {
+  flex: none;
+  width: 1.5em;
+  text-align: center;
+}
+
+button.bullet {
+  padding: 0;
+  border: 0;
+  border-radius: 0.35rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+button.bullet:active {
+  transform: scale(0.82);
+}
+
+.dash {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.cycles,
+.keys {
+  margin: 1.25rem 0 0;
+}
+
+.cycles div,
+.keys div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--chrome) 20%, transparent);
+}
+
+.cycles dd,
+.keys dd {
+  margin: 0;
+}
+
+.cycles dd {
+  letter-spacing: 0.18em;
+}
+
+.keys dt {
+  color: var(--band-ink, var(--ink));
+}
+
+/* ----- 6 · Layout toggle ----- */
+
+.layout-stage {
+  max-width: 60rem;
+  aspect-ratio: 1400 / 905;
+}
+
+/* List and strip differ in shape: fade out, then fade in */
+.lay {
+  display: none;
+  opacity: 0;
+  transition:
+    opacity 140ms ease-in,
+    display 0s 140ms allow-discrete;
+}
+
+.layout-demo:has(#layout-v:checked) .lay-v,
+.layout-demo:has(#layout-h:checked) .lay-h {
+  display: block;
+  opacity: 1;
+  transition:
+    opacity 240ms var(--ease-out) 140ms,
+    display 0s allow-discrete;
+}
+
+@starting-style {
+  .layout-demo:has(#layout-v:checked) .lay-v,
+  .layout-demo:has(#layout-h:checked) .lay-h {
+    opacity: 0;
+  }
+}
+
+/* ----- Recordings: click to play ----- */
+
+.clip {
+  margin: 0;
+}
+
+.clip video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.9rem;
+  background: var(--header);
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.5),
+    0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.clip figcaption {
+  margin-top: 0.75rem;
+  color: var(--band-soft, var(--ink-soft));
+  font-size: 0.9rem;
+}
+
+/* ----- 8 · Private by design ----- */
+
+.vows {
+  margin: 1.5rem 0 2.25rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.2vw, 2.5rem);
+  font-weight: 250;
+  line-height: 1.2;
+}
+
+.chapter .vows li {
+  color: var(--band-ink, var(--ink));
+}
+
+.chapter .vows li:last-child {
+  margin-top: 0.75rem;
+  color: var(--chrome);
+  font-size: 0.6em;
+}
+
+.chapter .cta {
+  justify-content: flex-start;
+  margin-top: 2rem;
 }
 
 /* ---------- Privacy (Slates Light) ---------- */

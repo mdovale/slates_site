@@ -283,6 +283,19 @@ Rules for sample text:
 
 Do not use generic mockup sites, AI device frames, or stock “person with laptop.” Crop tight. Let color do the framing.
 
+**Local source library.** The masters live on disk under `resources/` and are **not in git** (`.gitignore`). Keep the tree. Do not commit it, and do not delete it as cleanup. Another clone will not contain it; copy it from the machine that holds the masters. Published pages use cropped exports in `images/` only.
+
+Present locally (September 2026):
+
+| Folder | What is there |
+|--------|----------------|
+| `resources/master-slates-simple/` | 34 PNGs. Start here for v1. Dark and light full-desktop and fullscreen lists, settings (bullets, editor), syntax language selection, collapsed window, and tighter crops: main, plain, code, smart bullets, and rich notes (dictionary, this week, to-do, with code, word lookup). |
+| `resources/master-slates-complex/` | 109 PNGs. Deeper library for later bands: dark and light full-desktop, fullscreen, and window shots; list layouts; menu bar; share sheet; palette; per-slate stills; code crops for eight languages (C++, HTML, JavaScript React, PHP, Ruby, Rust, SCSS, Swift), each also as a small crop; 23 named theme stills, including Slates Dark, Slates Light, Tot Dark, and Tot Light. |
+| `resources/mockups/` | 28 device-frame composites (MacBook Air, MacBook Pro, Studio Display, Pro Display XDR). Reference only. The live site still crops real product shots. A generic mockup is not the hero. |
+| `resources/video/` | Three screen recordings: `screen_recording_code-editing.mov`, `screen_recording_smart_bullets.mov`, `screen_recording_workflow.mov`. Do not autoplay them (§8.7). |
+
+Prefer the simple set for v1. The complex set is the deeper library, not a dump onto the home page.
+
 ### 8.6 Layout
 
 - Max measure for copy: ~40–44rem, ~800px, stay in that family.
@@ -417,6 +430,8 @@ slates-site/
 ```
 
 GitHub Pages pretty URLs: either `support.html` + `/support` via a `support/index.html` pair, or a simple `support/index.html`. Prefer **directories with `index.html`** so `/support` and `/privacy` never show `.html`.
+
+On the photography machine, `resources/` sits beside this tree and is gitignored (§8.5). `images/` is the only image tree GitHub Pages serves.
 
 ### 11.4 Local preview
 

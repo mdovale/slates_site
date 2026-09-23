@@ -12,7 +12,7 @@ Protected unless the user names the path and asks to remove it:
 - `BLUEPRINT.md` (source of truth)
 - `README.md` once it exists
 - everything under `docs/`, especially `docs/handoffs/`
-- source photography under `resources/` (superseded shots stay as history)
+- everything under `resources/` (stills, mockups, screen recordings). The tree is gitignored. Do not commit it and do not delete it. Superseded shots stay as history (`resources-local.mdc`, `BLUEPRINT.md` §8.5).
 
 If content is wrong, **update** it (or add a short superseded note). Do not
 remove a handoff because the task is “done.”

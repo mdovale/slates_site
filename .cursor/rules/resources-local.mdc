@@ -1,0 +1,24 @@
+---
+description: Never commit or delete the local resources/ source library
+alwaysApply: true
+---
+
+# Local `resources/` stays on disk
+
+`resources/` is source art for the public site: product stills, device-frame
+composites, and screen recordings. Inventory: `BLUEPRINT.md` §8.5.
+
+## Never commit
+
+- Do not `git add` `resources/` or anything under it.
+- Do not `git add -f` to override `.gitignore`.
+- Do not copy the tree into `images/` as an uncropped dump. Publish only
+  selected exports (`BLUEPRINT.md` §8.5, §11.3).
+
+## Never remove
+
+- Do not delete, move, or empty `resources/` as cleanup, refactor, or
+  tidying. That includes superseded shots, mockups, and `.mov` files.
+- Remove a file only when the user names that path and asks for it.
+
+`.DS_Store` inside `resources/` is junk. Leave the art.

@@ -1,0 +1,13 @@
+# macOS Finder
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor scratch
+*~
+*.swp
+
+# Local source art: product stills, device-frame composites, screen
+# recordings. Stays on the photography machine. Published crops belong
+# in images/. See BLUEPRINT.md §8.5.
+/resources/

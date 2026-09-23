@@ -29,8 +29,10 @@ updated:
 
 1. **Commit often** — after each coherent, working increment
 2. **Keep commits small** — one logical concern per commit
-3. **Stage narrowly** — explicit paths; do not commit editor junk, `.DS_Store`,
-   or unoptimized dumps from `resources/` into `images/` unless asked
+3. **Stage narrowly** — explicit paths. Do not commit `.DS_Store`. Do not
+   stage `resources/` (gitignored local source art), including with
+   `git add -f`. Do not copy unoptimized dumps from `resources/` into
+   `images/` unless asked.
 4. **Message format** — `.cursor/rules/commit-message.mdc`. Optional handoff
    file name in the body
 

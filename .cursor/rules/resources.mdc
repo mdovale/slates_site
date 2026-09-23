@@ -6,13 +6,17 @@ alwaysApply: false
 
 # Marketing resources
 
-`resources/` is **source art**, not the GitHub Pages tree. Do not link live
-pages at these paths. Export selected shots into `images/` as 2x WebP + JPEG,
-longest edge ~2560px, boring names (`BLUEPRINT.md` §8.5, §11.3).
+`resources/` is **local source art**, gitignored, not the GitHub Pages tree.
+Do not commit it and do not delete it (`.cursor/rules/resources-local.mdc`).
+Do not link live pages at these paths. Export selected shots into `images/`
+as 2x WebP + JPEG, longest edge ~2560px, boring names (`BLUEPRINT.md` §8.5,
+§11.3).
 
-Prefer **`resources/marketing-slates-simple/`** for v1 (cleaner, fewer themes).
-The **complex** set is a larger library (per-slate windows, palettes, menu bar,
-screen recordings) for later bands — not a dump onto the home page.
+Prefer **`resources/master-slates-simple/`** for v1 (cleaner, fewer themes).
+The **complex** set (`resources/master-slates-complex/`) is a larger library
+(per-slate windows, palettes, menu bar) for later bands — not a dump onto
+the home page. Device-frame composites live in `resources/mockups/`. Screen
+recordings live in `resources/video/`.
 
 ## Blueprint shot list → likely sources
 

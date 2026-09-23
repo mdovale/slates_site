@@ -42,23 +42,142 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <picture>
-        <source srcset="images/app-icon.webp" type="image/webp">
-        <img class="hero-icon" src="images/app-icon.png" width="512" height="512" alt="The Slates app icon: eight translucent colored tiles in a ring.">
-      </picture>
-      <h1 id="hero-title">Slates</h1>
-      <p class="pitch">Eight color-coded scratchpads for quick capture.</p>
-      <ul class="strip" aria-hidden="true">
-        <li><span class="dot slot-1 is-active">1</span></li>
-        <li><span class="dot slot-2">2</span></li>
-        <li><span class="dot slot-3">3</span></li>
-        <li><span class="dot slot-4">4</span></li>
-        <li><span class="dot slot-5">5</span></li>
-        <li><span class="dot slot-6">6</span></li>
-        <li><span class="dot slot-7">7</span></li>
-        <li><span class="dot slot-8">8</span></li>
-      </ul>
+    <section class="hero stage" aria-labelledby="hero-title">
+      <div class="hero-head">
+        <picture>
+          <source srcset="images/app-icon.webp" type="image/webp">
+          <img class="hero-icon" src="images/app-icon.png" width="512" height="512" alt="The Slates app icon: eight translucent colored tiles in a ring.">
+        </picture>
+        <h1 id="hero-title">Slates</h1>
+        <p class="pitch">Eight <em>color-coded</em> scratchpads for quick capture.</p>
+      </div>
+
+      <div class="stage-frame">
+        <picture class="stage-photo">
+          <source type="image/webp" srcset="images/stage/base-1000.webp 1000w, images/stage/base-2000.webp 2000w" sizes="(min-width: 72rem) 64rem, 100vw">
+          <img src="images/stage/base-2000.jpg" srcset="images/stage/base-1000.jpg 1000w, images/stage/base-2000.jpg 2000w" sizes="(min-width: 72rem) 64rem, 100vw" width="2000" height="1250" fetchpriority="high" alt="A MacBook Pro on a dark, reflective surface, running Slates: one window with all eight colored slates in a vertical list, from a yellow page of notes to a gray palette of sunset colors.">
+        </picture>
+        <div class="spill" aria-hidden="true"></div>
+        <div class="screen">
+        <div class="layer layer-dark">
+          <picture class="scr scr-1">
+            <source type="image/webp" srcset="images/stage/dark-1-775.webp 775w, images/stage/dark-1-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-1-1550.jpg" srcset="images/stage/dark-1-775.jpg 775w, images/stage/dark-1-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 1 in focus: a yellow page titled Next Week, set in Georgia, with a dictionary-style note on the word slate, two web links, and three notable quotes.">
+          </picture>
+          <picture class="scr scr-2">
+            <source type="image/webp" srcset="images/stage/dark-2-775.webp 775w, images/stage/dark-2-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-2-1550.jpg" srcset="images/stage/dark-2-775.jpg 775w, images/stage/dark-2-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 2 in focus: an orange reading list titled To read, with two books checked off and seven still open.">
+          </picture>
+          <picture class="scr scr-3">
+            <source type="image/webp" srcset="images/stage/dark-3-775.webp 775w, images/stage/dark-3-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-3-1550.jpg" srcset="images/stage/dark-3-775.jpg 775w, images/stage/dark-3-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 3 in focus: studio door and alarm codes, a guest Wi-Fi network, and a one-time invite code, in plain monospaced text on deep red.">
+          </picture>
+          <picture class="scr scr-4">
+            <source type="image/webp" srcset="images/stage/dark-4-775.webp 775w, images/stage/dark-4-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-4-1550.jpg" srcset="images/stage/dark-4-775.jpg 775w, images/stage/dark-4-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 4 in focus: syntax-highlighted CSS for a personal site on purple, with a color chip beside each hex value.">
+          </picture>
+          <picture class="scr scr-5">
+            <source type="image/webp" srcset="images/stage/dark-5-775.webp 775w, images/stage/dark-5-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-5-1550.jpg" srcset="images/stage/dark-5-775.jpg 775w, images/stage/dark-5-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 5 in focus: a blue checklist titled Site launch, each line marked with a traffic-light bullet: white, yellow, green, or a done check.">
+          </picture>
+          <picture class="scr scr-6">
+            <source type="image/webp" srcset="images/stage/dark-6-775.webp 775w, images/stage/dark-6-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-6-1550.jpg" srcset="images/stage/dark-6-775.jpg 775w, images/stage/dark-6-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 6 in focus: a cyan dictionary entry for the word slate, set in Palatino, with its noun and verb senses.">
+          </picture>
+          <picture class="scr scr-7">
+            <source type="image/webp" srcset="images/stage/dark-7-775.webp 775w, images/stage/dark-7-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-7-1550.jpg" srcset="images/stage/dark-7-775.jpg 775w, images/stage/dark-7-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 7 in focus: a green board titled This week, with Kanban bullets for backlog, doing, and done.">
+          </picture>
+          <picture class="scr scr-8">
+            <source type="image/webp" srcset="images/stage/dark-8-775.webp 775w, images/stage/dark-8-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/dark-8-1550.jpg" srcset="images/stage/dark-8-775.jpg 775w, images/stage/dark-8-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 8 in focus: a gray slate titled Sunset with eight hex colors from lagoon to coral, each on its own color chip, and a CSS ramp.">
+          </picture>
+        </div>
+        <div class="layer layer-light">
+          <picture class="scr-list">
+            <source type="image/webp" srcset="images/stage/light-list-775.webp 775w, images/stage/light-list-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-list-1550.jpg" srcset="images/stage/light-list-775.jpg 775w, images/stage/light-list-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="">
+          </picture>
+          <picture class="scr scr-1">
+            <source type="image/webp" srcset="images/stage/light-1-775.webp 775w, images/stage/light-1-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-1-1550.jpg" srcset="images/stage/light-1-775.jpg 775w, images/stage/light-1-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 1 in focus: a yellow page titled Next Week, set in Georgia, with a dictionary-style note on the word slate, two web links, and three notable quotes.">
+          </picture>
+          <picture class="scr scr-2">
+            <source type="image/webp" srcset="images/stage/light-2-775.webp 775w, images/stage/light-2-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-2-1550.jpg" srcset="images/stage/light-2-775.jpg 775w, images/stage/light-2-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 2 in focus: an orange reading list titled To read, with two books checked off and seven still open.">
+          </picture>
+          <picture class="scr scr-3">
+            <source type="image/webp" srcset="images/stage/light-3-775.webp 775w, images/stage/light-3-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-3-1550.jpg" srcset="images/stage/light-3-775.jpg 775w, images/stage/light-3-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 3 in focus: studio door and alarm codes, a guest Wi-Fi network, and a one-time invite code, in plain monospaced text on deep red.">
+          </picture>
+          <picture class="scr scr-4">
+            <source type="image/webp" srcset="images/stage/light-4-775.webp 775w, images/stage/light-4-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-4-1550.jpg" srcset="images/stage/light-4-775.jpg 775w, images/stage/light-4-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 4 in focus: syntax-highlighted CSS for a personal site on purple, with a color chip beside each hex value.">
+          </picture>
+          <picture class="scr scr-5">
+            <source type="image/webp" srcset="images/stage/light-5-775.webp 775w, images/stage/light-5-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-5-1550.jpg" srcset="images/stage/light-5-775.jpg 775w, images/stage/light-5-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 5 in focus: a blue checklist titled Site launch, each line marked with a traffic-light bullet: white, yellow, green, or a done check.">
+          </picture>
+          <picture class="scr scr-6">
+            <source type="image/webp" srcset="images/stage/light-6-775.webp 775w, images/stage/light-6-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-6-1550.jpg" srcset="images/stage/light-6-775.jpg 775w, images/stage/light-6-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 6 in focus: a cyan dictionary entry for the word slate, set in Palatino, with its noun and verb senses.">
+          </picture>
+          <picture class="scr scr-7">
+            <source type="image/webp" srcset="images/stage/light-7-775.webp 775w, images/stage/light-7-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-7-1550.jpg" srcset="images/stage/light-7-775.jpg 775w, images/stage/light-7-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 7 in focus: a green board titled This week, with Kanban bullets for backlog, doing, and done.">
+          </picture>
+          <picture class="scr scr-8">
+            <source type="image/webp" srcset="images/stage/light-8-775.webp 775w, images/stage/light-8-1550.webp 1550w" sizes="(min-width: 72rem) 44rem, 62vw">
+            <img src="images/stage/light-8-1550.jpg" srcset="images/stage/light-8-775.jpg 775w, images/stage/light-8-1550.jpg 1550w" sizes="(min-width: 72rem) 44rem, 62vw" width="1550" height="1000" loading="lazy" decoding="async" alt="Slate 8 in focus: a gray slate titled Sunset with eight hex colors from lagoon to coral, each on its own color chip, and a CSS ramp.">
+          </picture>
+        </div>
+        </div>
+      </div>
+
+      <div class="stage-bar">
+        <fieldset class="picker">
+          <legend class="visually-hidden">Preview a slate</legend>
+          <div class="picks">
+            <input type="radio" name="slate" id="s0" value="all" checked autocomplete="off">
+            <label class="pick pick-0" for="s0" title="All slates"><svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="visually-hidden">All slates, list view</span></label>
+            <input type="radio" name="slate" id="s1" value="1" autocomplete="off">
+            <label class="pick pick-1 slot-1" for="s1"><span class="dot" aria-hidden="true">1</span><span class="visually-hidden">Slate 1, Next week, Rich</span></label>
+            <input type="radio" name="slate" id="s2" value="2" autocomplete="off">
+            <label class="pick pick-2 slot-2" for="s2"><span class="dot" aria-hidden="true">2</span><span class="visually-hidden">Slate 2, To read, Rich</span></label>
+            <input type="radio" name="slate" id="s3" value="3" autocomplete="off">
+            <label class="pick pick-3 slot-3" for="s3"><span class="dot" aria-hidden="true">3</span><span class="visually-hidden">Slate 3, Studio codes, Plain</span></label>
+            <input type="radio" name="slate" id="s4" value="4" autocomplete="off">
+            <label class="pick pick-4 slot-4" for="s4"><span class="dot" aria-hidden="true">4</span><span class="visually-hidden">Slate 4, Site tokens, Code</span></label>
+            <input type="radio" name="slate" id="s5" value="5" autocomplete="off">
+            <label class="pick pick-5 slot-5" for="s5"><span class="dot" aria-hidden="true">5</span><span class="visually-hidden">Slate 5, Site launch, Rich</span></label>
+            <input type="radio" name="slate" id="s6" value="6" autocomplete="off">
+            <label class="pick pick-6 slot-6" for="s6"><span class="dot" aria-hidden="true">6</span><span class="visually-hidden">Slate 6, Dictionary, Rich</span></label>
+            <input type="radio" name="slate" id="s7" value="7" autocomplete="off">
+            <label class="pick pick-7 slot-7" for="s7"><span class="dot" aria-hidden="true">7</span><span class="visually-hidden">Slate 7, This week, Rich</span></label>
+            <input type="radio" name="slate" id="s8" value="8" autocomplete="off">
+            <label class="pick pick-8 slot-8" for="s8"><span class="dot" aria-hidden="true">8</span><span class="visually-hidden">Slate 8, Sunset, Rich</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="look">
+          <legend class="visually-hidden">Appearance</legend>
+          <input type="radio" name="look" id="look-dark" value="dark" autocomplete="off">
+          <label for="look-dark">Dark</label>
+          <input type="radio" name="look" id="look-light" value="light" autocomplete="off">
+          <label for="look-light">Light</label>
+        </fieldset>
+      </div>
+      <p class="stage-status" aria-hidden="true">
+          <span class="st st-0">All slates · List · <kbd>⌘\</kbd></span>
+          <span class="st st-1">Slate 1 · Rich · Next week · <kbd>⌘1</kbd></span>
+          <span class="st st-2">Slate 2 · Rich, task checklist · To read · <kbd>⌘2</kbd></span>
+          <span class="st st-3">Slate 3 · Plain · Studio codes · <kbd>⌘3</kbd></span>
+          <span class="st st-4">Slate 4 · Code, CSS · Site tokens · <kbd>⌘4</kbd></span>
+          <span class="st st-5">Slate 5 · Rich, Traffic Light bullets · Site launch · <kbd>⌘5</kbd></span>
+          <span class="st st-6">Slate 6 · Rich, Palatino · Dictionary · <kbd>⌘6</kbd></span>
+          <span class="st st-7">Slate 7 · Rich, Kanban bullets · This week · <kbd>⌘7</kbd></span>
+          <span class="st st-8">Slate 8 · Rich, hex color previews · Sunset · <kbd>⌘8</kbd></span>
+      </p>
+
       <p class="hero-sub">A minimal Mac scratchpad with eight colored slates. Local by default, with optional iCloud sync.</p>
       <div class="cta">
         <span class="store store-soon"><small>Coming soon to the</small> <span>Mac App Store</span></span>
@@ -88,7 +207,7 @@
           <h2 id="desk">Eight slates. That’s the whole map.</h2>
           <p>Keep a list in one color, a code in another, a draft in a third. You remember <em>which</em> slate, not which folder. Hide the ones you are not using; they keep their text.</p>
         </div>
-        <figure class="shot shot-hero">
+        <figure class="shot shot-hero drift">
           <picture>
             <source srcset="images/mac-list-dark.webp" type="image/webp">
             <img src="images/mac-list-dark.jpg" width="1740" height="1858" loading="lazy" decoding="async" alt="Slates on a Mac in the dark palette: one window with a vertical list of colored slates. A yellow meeting note, an orange packing checklist, a blue launch board with traffic-light bullets, a cyan dictionary entry for the word slate, and a green task list. Numbered squares 1 to 8 run across the toolbar.">
@@ -104,7 +223,7 @@
       </div>
       <div class="band-body">
         <div class="platform">
-          <figure class="shot shot-focus">
+          <figure class="shot shot-focus drift">
             <picture>
               <source srcset="images/mac-focus-dark.webp" type="image/webp">
               <img src="images/mac-focus-dark.jpg" width="1536" height="1414" loading="lazy" decoding="async" alt="A single slate in focus view, in slate 3’s deep red: studio door and alarm codes, a guest Wi-Fi network, and a one-time invite code. The toolbar shows the numbered squares 1 to 8 with 3 lit.">

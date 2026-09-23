@@ -314,7 +314,15 @@ main {
   font-size: 1rem;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero: the Stage ---------- */
+
+/*
+ * A MacBook Pro on stage, driven by the 1–8 glyph toolbar under it. Every
+ * state comes from radio inputs and :has(), so it works without JavaScript.
+ *   hover glyph N  → preview slate N (hover wins over the pinned choice)
+ *   check glyph N  → pin slate N (click, tap, arrows, or digits via JS)
+ *   check ‹        → all slates, the list (the app's ⌘\)
+ */
 
 @property --hero-accent {
   syntax: "<color>";
@@ -324,23 +332,35 @@ main {
 
 .hero {
   --hero-accent: var(--slate-1);
+  --stage-w: min(100%, 68rem, max(22rem, calc((100vh - 21rem) * 1.6)));
   position: relative;
-  padding: clamp(2.5rem, 7vw, 5rem) var(--gutter) clamp(4rem, 9vw, 6.5rem);
+  padding: clamp(1rem, 2.5vw, 1.75rem) var(--gutter) clamp(4rem, 9vw, 6rem);
   text-align: center;
   background:
     radial-gradient(
-      40rem 26rem at 50% 12rem,
-      color-mix(in srgb, var(--hero-accent) 14%, transparent),
+      44rem 30rem at 50% 58%,
+      color-mix(in srgb, var(--hero-accent) 9%, transparent),
       transparent 70%
     ),
     var(--ground);
-  transition: --hero-accent 0.35s ease;
+  transition: --hero-accent var(--t-stage) var(--ease-out);
+}
+
+@supports (height: 100svh) {
+  .hero {
+    --stage-w: min(100%, 68rem, max(22rem, calc((100svh - 21rem) * 1.6)));
+  }
+}
+
+.hero-head {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-icon {
-  width: clamp(7.5rem, 20vw, 11rem);
+  width: clamp(3rem, 6vw, 3.75rem);
   height: auto;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 0.4rem;
 }
 
 .hero-icon-button {
@@ -351,58 +371,490 @@ main {
   background: none;
   cursor: pointer;
   border-radius: 24%;
+  transition: transform var(--t-quick) var(--ease-spring);
+}
+
+.hero-icon-button:active {
+  transform: scale(0.94);
 }
 
 .hero h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
   font-weight: 300;
   letter-spacing: 0.02em;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.35rem;
 }
 
 .pitch {
-  max-width: 17em;
-  margin: 0 auto 2.25rem;
+  max-width: 16em;
+  margin: 0 auto;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.3rem);
   font-weight: 250;
   line-height: 1.05;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
-.hero .strip {
-  margin-bottom: 2.25rem;
+.hero em {
+  color: color-mix(in oklab, var(--hero-accent) 72%, #fff);
 }
 
-.hero .strip .dot {
-  opacity: 0.5;
-  transition: opacity 0.3s ease, box-shadow 0.3s ease;
-  animation: breathe 5.6s ease-in-out infinite;
+/* The photograph, with the screen rectangle stacked on top of it */
+
+.stage-frame {
+  position: relative;
+  width: var(--stage-w);
+  margin: -1.5% auto 0;
+  aspect-ratio: 2000 / 1250;
 }
 
-.hero .strip li:nth-child(2) .dot { animation-delay: 0.35s; }
-.hero .strip li:nth-child(3) .dot { animation-delay: 0.7s; }
-.hero .strip li:nth-child(4) .dot { animation-delay: 1.05s; }
-.hero .strip li:nth-child(5) .dot { animation-delay: 1.4s; }
-.hero .strip li:nth-child(6) .dot { animation-delay: 1.75s; }
-.hero .strip li:nth-child(7) .dot { animation-delay: 2.1s; }
-.hero .strip li:nth-child(8) .dot { animation-delay: 2.45s; }
+/* The studio backdrop dissolves into the page on eased ramps (no banding);
+   the laptop itself stays fully opaque. */
+.stage-photo img {
+  --fade-x: linear-gradient(to right,
+    transparent, rgb(0 0 0 / 0.06) 1.2%, rgb(0 0 0 / 0.2) 2.6%, rgb(0 0 0 / 0.42) 4%,
+    rgb(0 0 0 / 0.66) 5.4%, rgb(0 0 0 / 0.86) 6.8%, #000 8.4%,
+    #000 91.6%, rgb(0 0 0 / 0.86) 93.2%, rgb(0 0 0 / 0.66) 94.6%,
+    rgb(0 0 0 / 0.42) 96%, rgb(0 0 0 / 0.2) 97.4%, rgb(0 0 0 / 0.06) 98.8%, transparent);
+  --fade-y: linear-gradient(to bottom,
+    transparent, rgb(0 0 0 / 0.08) 2%, rgb(0 0 0 / 0.26) 4.5%, rgb(0 0 0 / 0.52) 7%,
+    rgb(0 0 0 / 0.78) 9%, #000 11%,
+    #000 84%, rgb(0 0 0 / 0.7) 88%, rgb(0 0 0 / 0.36) 92%, rgb(0 0 0 / 0.12) 96%, transparent);
+  width: 100%;
+  -webkit-mask-image: var(--fade-x), var(--fade-y);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--fade-x), var(--fade-y);
+  mask-composite: intersect;
+}
 
-.hero .strip .dot.is-active {
+/*
+ * Screen rectangle inside the stage photo. Both come from the 6400×4800
+ * MacBook Pro 16" renders: the photo is the crop 5760×3600+320+560, each
+ * screen image the crop 3968×2560+1216+960. Everything outside the screen
+ * is pixel-identical across renders, so the seams are invisible.
+ */
+.screen {
+  position: absolute;
+  left: 15.5556%;
+  top: 11.1111%;
+  width: 68.8889%;
+  height: 71.1111%;
+}
+
+.layer,
+.scr,
+.scr-list {
+  position: absolute;
+  inset: 0;
+}
+
+.scr img,
+.scr-list img {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Rise: a slate fills the screen. List and focus windows differ in size, so
+ * a plain cross-fade would show two windows at once. Instead the incoming
+ * frame arrives dimmed, covers the old one, then brightens; leaving reverses
+ * that. Leaving also waits briefly, so sweeping across glyphs never drops
+ * back to the list in between.
+ */
+.scr {
+  display: none;
+  opacity: 0;
+  filter: brightness(0.3);
+  z-index: 1;
+  transition:
+    filter 160ms ease-in 180ms,
+    opacity 200ms var(--ease-out) 320ms,
+    display 0s linear 520ms allow-discrete;
+}
+
+/* Spill: the screen's light on the reflective surface */
+.spill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80%;
+  height: 20%;
+  pointer-events: none;
+  background: radial-gradient(
+    38% 52% at 50% 42%,
+    color-mix(in srgb, var(--spill, var(--hero-accent)) 60%, transparent),
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  transition: opacity var(--t-stage) var(--ease-out);
+}
+
+/* The toolbar: ‹ and glyphs 1–8, then the appearance switch */
+
+.stage-bar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: var(--stage-w);
+  margin: -5% auto 0;
+}
+
+.picker,
+.look {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.picker input,
+.look input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.picks,
+.look {
+  display: flex;
+  align-items: center;
+  border-radius: 0.8rem;
+  background: #161616;
+  box-shadow:
+    inset 0 0 0 1px #2b2b2b,
+    0 0.75rem 2rem rgba(0, 0, 0, 0.6);
+}
+
+.picks {
+  padding: 0.2rem 0.35rem;
+}
+
+.pick {
+  display: grid;
+  place-items: center;
+  padding: 0.35rem 0.2rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pick-0 {
+  padding-inline: 0.45rem 0.6rem;
+  color: #a0a0a0;
+  opacity: 0.45;
+  transition: opacity var(--t-quick) var(--ease-out);
+}
+
+.pick-0:hover,
+.stage:has(#s1:checked, #s2:checked, #s3:checked, #s4:checked, #s5:checked, #s6:checked, #s7:checked, #s8:checked) .pick-0 {
   opacity: 1;
-  animation: none;
-  box-shadow: 0 0 1.4rem color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
-@keyframes breathe {
-  0%, 100% { opacity: 0.5; transform: translateY(0); }
-  50% { opacity: 0.68; transform: translateY(-1px); }
+.chev {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.pick .dot {
+  --size: clamp(1.75rem, 5.2vw, 2.35rem);
+  position: relative;
+  opacity: 0.42;
+  transition:
+    opacity var(--t-quick) var(--ease-out),
+    transform var(--t-quick) var(--ease-spring);
+}
+
+/* Glow like the app's selected glyph: a soft halo and a faint top highlight */
+.pick .dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 0 0.35rem color-mix(in srgb, var(--accent) 70%, transparent),
+    0 0 1.3rem color-mix(in srgb, var(--accent) 55%, transparent);
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease-out);
+}
+
+.pick:hover .dot {
+  opacity: 0.8;
+}
+
+.pick:active .dot {
+  transform: scale(0.94);
+}
+
+.picker input:focus-visible + .pick {
+  outline: 3px solid var(--hero-accent);
+  outline-offset: -1px;
+  border-radius: 0.55rem;
+}
+
+/* Idle, the list: glyph 1 softly lit, as in the app */
+.stage:has(.pick-0:hover) .pick-1 .dot,
+.stage:not(:has(.pick:hover)):has(#s0:checked) .pick-1 .dot {
+  opacity: 0.75;
+}
+
+/* Appearance switch */
+.look {
+  padding: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.look label {
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.6rem;
+  color: #a0a0a0;
+  cursor: pointer;
+  transition:
+    background-color var(--t-quick) var(--ease-out),
+    color var(--t-quick) var(--ease-out);
+}
+
+.look label:hover {
+  color: var(--ink);
+}
+
+.look input:focus-visible + label {
+  outline: 3px solid var(--hero-accent);
+  outline-offset: -1px;
+}
+
+.look input:checked + label,
+.look:not(:has(:checked)) label[for="look-dark"] {
+  background: #333;
+  color: var(--ink);
+}
+
+/* The status line, in the app's footer style */
+.stage-status {
+  min-height: 1.5em;
+  margin: 1.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-status kbd {
+  border: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.st {
+  display: none;
+}
+
+/* ----- State: which slate is on screen ----- */
+
+.stage:has(.pick-0:hover) .st-0,
+.stage:not(:has(.pick:hover)):has(#s0:checked) .st-0 {
+  display: inline;
+}
+
+.stage:has(.pick-1:hover) .scr-1,
+.stage:not(:has(.pick:hover)):has(#s1:checked) .scr-1,
+.stage:has(.pick-2:hover) .scr-2,
+.stage:not(:has(.pick:hover)):has(#s2:checked) .scr-2,
+.stage:has(.pick-3:hover) .scr-3,
+.stage:not(:has(.pick:hover)):has(#s3:checked) .scr-3,
+.stage:has(.pick-4:hover) .scr-4,
+.stage:not(:has(.pick:hover)):has(#s4:checked) .scr-4,
+.stage:has(.pick-5:hover) .scr-5,
+.stage:not(:has(.pick:hover)):has(#s5:checked) .scr-5,
+.stage:has(.pick-6:hover) .scr-6,
+.stage:not(:has(.pick:hover)):has(#s6:checked) .scr-6,
+.stage:has(.pick-7:hover) .scr-7,
+.stage:not(:has(.pick:hover)):has(#s7:checked) .scr-7,
+.stage:has(.pick-8:hover) .scr-8,
+.stage:not(:has(.pick:hover)):has(#s8:checked) .scr-8 {
+  display: block;
+  opacity: 1;
+  filter: none;
+  z-index: 2;
+  transition:
+    opacity 160ms var(--ease-out),
+    filter var(--t-base) var(--ease-out) 110ms,
+    display 0s allow-discrete;
+}
+
+@starting-style {
+  .stage:has(.pick-1:hover) .scr-1,
+  .stage:not(:has(.pick:hover)):has(#s1:checked) .scr-1,
+  .stage:has(.pick-2:hover) .scr-2,
+  .stage:not(:has(.pick:hover)):has(#s2:checked) .scr-2,
+  .stage:has(.pick-3:hover) .scr-3,
+  .stage:not(:has(.pick:hover)):has(#s3:checked) .scr-3,
+  .stage:has(.pick-4:hover) .scr-4,
+  .stage:not(:has(.pick:hover)):has(#s4:checked) .scr-4,
+  .stage:has(.pick-5:hover) .scr-5,
+  .stage:not(:has(.pick:hover)):has(#s5:checked) .scr-5,
+  .stage:has(.pick-6:hover) .scr-6,
+  .stage:not(:has(.pick:hover)):has(#s6:checked) .scr-6,
+  .stage:has(.pick-7:hover) .scr-7,
+  .stage:not(:has(.pick:hover)):has(#s7:checked) .scr-7,
+  .stage:has(.pick-8:hover) .scr-8,
+  .stage:not(:has(.pick:hover)):has(#s8:checked) .scr-8 {
+    opacity: 0;
+    filter: brightness(0.3);
+  }
+}
+
+.stage:has(.pick-1:hover) .pick-1 .dot,
+.stage:not(:has(.pick:hover)):has(#s1:checked) .pick-1 .dot,
+.stage:has(.pick-2:hover) .pick-2 .dot,
+.stage:not(:has(.pick:hover)):has(#s2:checked) .pick-2 .dot,
+.stage:has(.pick-3:hover) .pick-3 .dot,
+.stage:not(:has(.pick:hover)):has(#s3:checked) .pick-3 .dot,
+.stage:has(.pick-4:hover) .pick-4 .dot,
+.stage:not(:has(.pick:hover)):has(#s4:checked) .pick-4 .dot,
+.stage:has(.pick-5:hover) .pick-5 .dot,
+.stage:not(:has(.pick:hover)):has(#s5:checked) .pick-5 .dot,
+.stage:has(.pick-6:hover) .pick-6 .dot,
+.stage:not(:has(.pick:hover)):has(#s6:checked) .pick-6 .dot,
+.stage:has(.pick-7:hover) .pick-7 .dot,
+.stage:not(:has(.pick:hover)):has(#s7:checked) .pick-7 .dot,
+.stage:has(.pick-8:hover) .pick-8 .dot,
+.stage:not(:has(.pick:hover)):has(#s8:checked) .pick-8 .dot {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.stage:has(.pick-1:hover) .pick-1 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s1:checked) .pick-1 .dot::after,
+.stage:has(.pick-2:hover) .pick-2 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s2:checked) .pick-2 .dot::after,
+.stage:has(.pick-3:hover) .pick-3 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s3:checked) .pick-3 .dot::after,
+.stage:has(.pick-4:hover) .pick-4 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s4:checked) .pick-4 .dot::after,
+.stage:has(.pick-5:hover) .pick-5 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s5:checked) .pick-5 .dot::after,
+.stage:has(.pick-6:hover) .pick-6 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s6:checked) .pick-6 .dot::after,
+.stage:has(.pick-7:hover) .pick-7 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s7:checked) .pick-7 .dot::after,
+.stage:has(.pick-8:hover) .pick-8 .dot::after,
+.stage:not(:has(.pick:hover)):has(#s8:checked) .pick-8 .dot::after {
+  opacity: 1;
+}
+
+.stage:has(.pick-1:hover) .st-1,
+.stage:not(:has(.pick:hover)):has(#s1:checked) .st-1,
+.stage:has(.pick-2:hover) .st-2,
+.stage:not(:has(.pick:hover)):has(#s2:checked) .st-2,
+.stage:has(.pick-3:hover) .st-3,
+.stage:not(:has(.pick:hover)):has(#s3:checked) .st-3,
+.stage:has(.pick-4:hover) .st-4,
+.stage:not(:has(.pick:hover)):has(#s4:checked) .st-4,
+.stage:has(.pick-5:hover) .st-5,
+.stage:not(:has(.pick:hover)):has(#s5:checked) .st-5,
+.stage:has(.pick-6:hover) .st-6,
+.stage:not(:has(.pick:hover)):has(#s6:checked) .st-6,
+.stage:has(.pick-7:hover) .st-7,
+.stage:not(:has(.pick:hover)):has(#s7:checked) .st-7,
+.stage:has(.pick-8:hover) .st-8,
+.stage:not(:has(.pick:hover)):has(#s8:checked) .st-8 {
+  display: inline;
+}
+
+.stage:has(.pick-1:hover, .pick-2:hover, .pick-3:hover, .pick-4:hover, .pick-5:hover, .pick-6:hover, .pick-7:hover, .pick-8:hover) .spill,
+.stage:not(:has(.pick:hover)):has(#s1:checked, #s2:checked, #s3:checked, #s4:checked, #s5:checked, #s6:checked, #s7:checked, #s8:checked) .spill {
+  opacity: 0.9;
+}
+
+.stage:has(.pick-2:hover), .stage:not(:has(.pick:hover)):has(#s2:checked) { --hero-accent: var(--slate-2); }
+.stage:has(.pick-3:hover), .stage:not(:has(.pick:hover)):has(#s3:checked) { --hero-accent: var(--slate-3); }
+.stage:has(.pick-4:hover), .stage:not(:has(.pick:hover)):has(#s4:checked) { --hero-accent: var(--slate-4); }
+.stage:has(.pick-5:hover), .stage:not(:has(.pick:hover)):has(#s5:checked) { --hero-accent: var(--slate-5); }
+.stage:has(.pick-6:hover), .stage:not(:has(.pick:hover)):has(#s6:checked) { --hero-accent: var(--slate-6); }
+.stage:has(.pick-7:hover), .stage:not(:has(.pick:hover)):has(#s7:checked) { --hero-accent: var(--slate-7); }
+.stage:has(.pick-8:hover), .stage:not(:has(.pick:hover)):has(#s8:checked) { --hero-accent: var(--slate-8); }
+
+/* ----- State: appearance (View → Theme) ----- */
+
+/*
+ * Sweep: Light is revealed left to right, and so is Dark on the way back.
+ * Until the visitor picks, the Stage follows prefers-color-scheme; the page
+ * ground stays dark either way.
+ */
+.layer-light {
+  display: none;
+  clip-path: inset(0 0 0 100%);
+  transition:
+    clip-path var(--t-sweep) var(--ease-out),
+    display 0s linear var(--t-sweep) allow-discrete;
+}
+
+.layer-dark {
+  transition: display 0s allow-discrete;
+}
+
+.stage:has(#look-light:checked) .layer-light {
+  display: block;
+  clip-path: inset(0);
+  transition:
+    clip-path var(--t-sweep) var(--ease-out),
+    display 0s allow-discrete;
+}
+
+@starting-style {
+  .stage:has(#look-light:checked) .layer-light {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.stage:has(#look-light:checked) .layer-dark {
+  display: none;
+  transition: display 0s linear var(--t-sweep) allow-discrete;
+}
+
+.stage:has(#look-light:checked) {
+  --spill: color-mix(in srgb, var(--hero-accent) 22%, #fff3dc);
+}
+
+@media (prefers-color-scheme: light) {
+  .stage:not(:has(#look-dark:checked)) .layer-light {
+    display: block;
+    clip-path: inset(0);
+    transition:
+      clip-path var(--t-sweep) var(--ease-out),
+      display 0s allow-discrete;
+  }
+
+  .stage:not(:has(#look-dark:checked)) .layer-dark {
+    display: none;
+    transition: display 0s linear var(--t-sweep) allow-discrete;
+  }
+
+  .stage:not(:has(#look-dark:checked)) {
+    --spill: color-mix(in srgb, var(--hero-accent) 22%, #fff3dc);
+  }
+
+  .look:not(:has(:checked)) label[for="look-dark"] {
+    background: none;
+    color: #a0a0a0;
+  }
+
+  .look:not(:has(:checked)) label[for="look-light"] {
+    background: #333;
+    color: var(--ink);
+  }
 }
 
 .hero-sub {
   max-width: 30rem;
-  margin: 0 auto 2rem;
+  margin: 1.75rem auto 1.75rem;
   color: var(--ink-soft);
 }
 

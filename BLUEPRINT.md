@@ -4,7 +4,7 @@ Version: 0.2
 Product: Slates (macOS scratchpad; iOS later)  
 Repo: public, separate from the private app repository  
 Host: GitHub Pages  
-Status: v1 shipped (September 2026). v2 approved: motion system, the Stage hero, appearance demos, `/features`, selected mockups, click-to-play recordings (§6.2). This file is the source of truth for the public site.
+Status: v1 shipped (September 2026). v2 implemented on `main` (September 23, 2026): motion system, the Stage hero, appearance demos, `/features`, selected mockups, click-to-play recordings (§6.2); implementation notes in `docs/handoffs/20260923_v2-implementation.md`. This file is the source of truth for the public site.
 
 The app codebase is authoritative for product behavior. This blueprint is authoritative for the public site: what it is, how it should look, what it must not become, and how it stays easy to keep alive.
 
@@ -162,7 +162,7 @@ The home page is a vertical walk through eight colored “slates,” then suppor
 **v2 changes to the home scroll** (approved September 2026):
 
 - **The Stage replaces the static hero art.** A MacBook Pro 16" on a dark reflective surface (the owner’s licensed mockup series, §8.5) shows Slates in a vertical list. The 1–8 glyph strip sits under it as its toolbar:
-  - hovering, focusing, or tapping glyph N focuses slate N, like ⌘N in the app: the slate N window rises in front of the screen, the glyph lights like the app’s selected glyph, and slot N’s color spills onto the surface
+  - hovering, focusing, or tapping glyph N focuses slate N, like ⌘N in the app: the laptop’s screen changes to slate N in focus view (the aligned in-device renders, approved as the Stage’s second phase), the glyph lights like the app’s selected glyph, and slot N’s color spills onto the surface
   - leaving the strip or pressing Esc returns to the list (⌘\\)
   - a status line in the app’s footer style names the slate: `Slate 3 · Plain · Studio codes · ⌘3`
   - a **Dark | Light** switch flips the laptop photo and every slate window between aligned pairs

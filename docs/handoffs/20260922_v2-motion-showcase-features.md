@@ -7,7 +7,8 @@ Blueprint: §6 (scope), §7 (IA), §8.1 (thesis), §8.5 (photography), §8.7 (mo
 ## Current status
 
 - v1 is shipped on `main`: home, `/support`, `/privacy`, `/history`, 404, OG card. GitHub Pages was not yet enabled at the time of writing.
-- Nothing in this document is implemented. It is a design brief plus an implementation plan.
+- **Implemented 2026-09-23** (steps 2–9). What shipped, decisions made along the way, and remaining QA are in `docs/handoffs/20260923_v2-implementation.md`. The line below is kept as history.
+- ~~Nothing in this document is implemented. It is a design brief plus an implementation plan.~~
 - **Decisions made (owner, 2026-09-22):** A1, A2, A4, A5, A6 approved. A3: recordings are **click-to-play**, shown on `/features`. Short silent loops on the home page (the owner would love one showing list ↔ focus, or a ⌘L orientation change) are deferred to a later decision. The mockups were exported on a **paid plan**, so they are licensed for the site.
 - **More decisions (owner, 2026-09-22):**
   - **Stage: both phases, in order.** Build **v2a** now (slate windows rise over the laptop, using existing assets). Upgrade to **v2b** (the laptop’s screen itself changes). The renders arrived 2026-09-23; see *Stage and showcase assets*.

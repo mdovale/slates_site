@@ -25,14 +25,14 @@
 
 /* Slates Light, for long reading on /privacy */
 .light { color: var(--ink-dark); }
-.light.slot-1 { --wash: var(--light-bg-1); --header: var(--light-header-1); --chrome: var(--light-chrome-1); --digit: var(--light-chrome-1); }
-.light.slot-2 { --wash: var(--light-bg-2); --header: var(--light-header-2); --chrome: var(--light-chrome-2); --digit: var(--light-chrome-2); }
-.light.slot-3 { --wash: var(--light-bg-3); --header: var(--light-header-3); --chrome: var(--light-chrome-3); --digit: var(--light-chrome-3); }
-.light.slot-4 { --wash: var(--light-bg-4); --header: var(--light-header-4); --chrome: var(--light-chrome-4); --digit: var(--light-chrome-4); }
-.light.slot-5 { --wash: var(--light-bg-5); --header: var(--light-header-5); --chrome: var(--light-chrome-5); --digit: var(--light-chrome-5); }
-.light.slot-6 { --wash: var(--light-bg-6); --header: var(--light-header-6); --chrome: var(--light-chrome-6); --digit: var(--light-chrome-6); }
-.light.slot-7 { --wash: var(--light-bg-7); --header: var(--light-header-7); --chrome: var(--light-chrome-7); --digit: var(--light-chrome-7); }
-.light.slot-8 { --wash: var(--light-bg-8); --header: #ececec; --chrome: #5f5f5f; --digit: var(--light-bg-8); }
+.light.slot-1 { --wash: var(--light-bg-1); --header: var(--light-header-1); --chrome: var(--light-chrome-1); }
+.light.slot-2 { --wash: var(--light-bg-2); --header: var(--light-header-2); --chrome: var(--light-chrome-2); }
+.light.slot-3 { --wash: var(--light-bg-3); --header: var(--light-header-3); --chrome: var(--light-chrome-3); }
+.light.slot-4 { --wash: var(--light-bg-4); --header: var(--light-header-4); --chrome: var(--light-chrome-4); }
+.light.slot-5 { --wash: var(--light-bg-5); --header: var(--light-header-5); --chrome: var(--light-chrome-5); }
+.light.slot-6 { --wash: var(--light-bg-6); --header: var(--light-header-6); --chrome: var(--light-chrome-6); }
+.light.slot-7 { --wash: var(--light-bg-7); --header: var(--light-header-7); --chrome: var(--light-chrome-7); }
+.light.slot-8 { --wash: var(--light-bg-8); --header: #ececec; --chrome: #5f5f5f; }
 
 /* ---------- Base ---------- */
 
@@ -770,7 +770,7 @@ a.store:focus-visible {
 }
 
 .light .band-head {
-  color: var(--chrome);
+  color: var(--ink-dark);
 }
 
 .light .band-body {

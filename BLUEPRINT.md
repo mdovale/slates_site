@@ -69,7 +69,7 @@ The site succeeds if:
 
 1. **App Store Connect** can point Support URL and Privacy Policy URL at pages that stay up.
 2. A reviewer finds **how to get help** (email) within one screen of `/support` and `/`.
-3. A new visitor understands, in under ten seconds: eight colored scratchpads, local by default, optional iCloud, macOS 13+.
+3. A new visitor understands, in under ten seconds: eight colored scratchpads, local by default, optional iCloud, macOS 14+.
 4. It looks **worthy of the app**: colorful, calm, distinctive. A designer should want to bookmark it.
 5. Updating FAQ, privacy, or “what’s new” is a small Markdown/HTML edit and a push. No rebuild archaeology.
 6. There is **no analytics, no tracker, no cookie banner**.
@@ -249,6 +249,8 @@ The numbered 1–8 circle is as important as color. Use it in:
 
 Circles should match in-app language: filled disc, digit in the slate’s `slateCircleDigit` color (dark on neon for Slates Dark: `#1c1b14` on yellow, etc.).
 
+> September 2026: in the shipping app the markers are rounded squares (corner radius about a quarter of the side), not discs; the focused one is lit with a soft glow and the rest are dimmed. The site matches the app shape. Pages on Slates Light washes keep the dark digits, because the Slates Light digit colors measure under 4:1 on the neon fills.
+
 ### 8.4 Typography
 
 Light sans (Myriad Pro via Typekit), large sizes, weight 200–400.
@@ -357,8 +359,10 @@ Do not claim features that are still ideas (IAP, Pocket, App Intents) until they
 
 ### 9.2 Requirements line
 
-macOS 13 (Ventura) or later.  
+macOS 14 (Sonoma) or later.  
 iPhone / iPad: omit until Pocket is real, or a single muted line: “iPhone companion in the works.”
+
+> Corrected September 2026: the shipping app’s deployment target is macOS 14.0. Earlier drafts said macOS 13 (Ventura).
 
 ---
 
@@ -554,8 +558,8 @@ A good change is a few dozen lines in one HTML file. If a change needs a design 
 
 Record the answer here when chosen; do not block v1 on them.
 
-1. **Canonical domain** — `slates.app` vs `getslates.app` vs `github.io` path until a domain is purchased.
-2. **Display typeface** — system-only vs one self-hosted family.
+1. **Canonical domain** — `slates.app` vs `getslates.app` vs `github.io` path until a domain is purchased. *Interim (still open):* v1 is served at `https://mdovale.github.io/slates_site/`; README lists the three edits for moving to a custom domain.
+2. **Display typeface** — system-only vs one self-hosted family. **Chosen for v1:** *Outfit*, self-hosted (SIL OFL, Latin subset, variable 100–900) in `fonts/`; body stays on the system UI stack.
 3. **Home as Support URL vs `/support`.** Recommendation: freeze **`/support`** as Support URL so home can evolve as a marketing page without surprising App Review.
 4. **Whether to show iOS at all** before Pocket ships.
 5. **Pricing line.** “Available for Free on the Mac App Store.”

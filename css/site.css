@@ -309,6 +309,12 @@ kbd {
 
 /* ---------- Hero ---------- */
 
+@property --hero-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffd600;
+}
+
 .hero {
   --hero-accent: var(--slate-1);
   position: relative;
@@ -321,7 +327,7 @@ kbd {
       transparent 70%
     ),
     var(--ground);
-  transition: background-color 0.4s ease;
+  transition: --hero-accent 0.35s ease;
 }
 
 .hero-icon {

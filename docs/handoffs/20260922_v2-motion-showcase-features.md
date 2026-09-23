@@ -9,6 +9,9 @@ Blueprint: §6 (scope), §7 (IA), §8.1 (thesis), §8.5 (photography), §8.7 (mo
 - v1 is shipped on `main`: home, `/support`, `/privacy`, `/history`, 404, OG card. GitHub Pages was not yet enabled at the time of writing.
 - Nothing in this document is implemented. It is a design brief plus an implementation plan.
 - **Decisions made (owner, 2026-09-22):** A1, A2, A4, A5, A6 approved. A3: recordings are **click-to-play**, shown on `/features`. Short silent loops on the home page (the owner would love one showing list ↔ focus, or a ⌘L orientation change) are deferred to a later decision. The mockups were exported on a **paid plan**, so they are licensed for the site.
+- **More decisions (owner, 2026-09-22):**
+  - **Stage: both phases, in order.** Build **v2a** now (slate windows rise over the laptop, using existing assets). Upgrade to **v2b** (the laptop’s screen itself changes) when the renders in *Mockup render list* arrive.
+  - **Light-mode visitors see the demos in Light first.** The Stage and other appearance demos start from `prefers-color-scheme` (Light → Light, Dark or no preference → Dark). The visitor can still flip them. The page ground stays dark either way.
 - `BLUEPRINT.md` (v0.2: §6.2, §7, §7.1, §7.4, §8.1, §8.2, §8.5, §8.7, §11.2, §14, §15, §17, §18, §19) and `.cursor/rules/{site-stack,visual-design,no-hacky-workarounds,resources}.mdc` now reflect these decisions. Implementation can start at *Recommended next steps*, step 2.
 
 ## Owner intent
@@ -106,14 +109,14 @@ Implementation sketch (CSS-first):
 - Sizes: stage photo 2000w about 180 KB WebP (1000w for phones); each window 1000w, about 40–80 KB WebP.
 - Touch: no hover, so tap selects and pins. The strip sits below the device at full width.
 
-Upgrade path (needs new captures; see *Photography gaps*): render **16 aligned in-device frames** (slot × appearance) in the same mockup scene, so the laptop’s screen itself changes instead of a window rising in front. The CSS stays the same; only the images change.
+Upgrade path, **v2b (approved; build after v2a):** swap in the 18 aligned in-device renders from *Mockup render list*: an idle list plus slates 1–8, each in Dark and Light. The laptop’s screen itself then changes instead of a window rising in front. The picker, status line, and keyboard handling stay the same. The Rise becomes an in-screen cross-fade, with a subtle scale on the screen area only.
 
 ### B. Appearance, everywhere
 
 - **Hero switch** (above). Dark ↔ Light swaps the stage photo (`…_dark_list-vertical.jpeg` ↔ `…_light-list-vertical.jpeg`, which are pixel-aligned) and all slate windows (`*_dark` ↔ `*_light`).
 - **The transition is a light sweep, not a fade:** the new appearance is revealed with `clip-path: inset(0 0 0 100%)` → `inset(0)` over about 600ms, left to right, like light entering the room. Reduced motion: instant.
 - The page ground stays black (the home page stays dark per the rules), but in Light the spill turns warm white. The screen visibly lights the surface.
-- **Initial state follows `prefers-color-scheme`** for the demo only. A Light-mode visitor first sees Slates in Light, a quiet “we noticed”.
+- **Initial state follows `prefers-color-scheme`** (approved 2026-09-22) for the demos only. A Light-mode visitor first sees Slates in Light, a quiet “we noticed”. CSS-first: a `@media (prefers-color-scheme: light)` rule applies the Light frames while the switch is untouched. Checking a radio overrides it. Without JS, the default radio is chosen to match via two mirrored markups, or accept Dark as the no-JS default. Pick the simpler one and document it.
 - **“Same desk, lights up” band** (home, after the list photo): the dark and light horizontal-strip mockups (`…_dark-list-horizontal.jpeg` / `…_light_list-horizontal.jpeg`, aligned) under a **draggable divider**. It's an `<input type="range">` plus about 5 lines of JS to set `--split`. Without JS, show the two side by side.
 
 ### C. `/features/`: eight chapters, one per color
@@ -226,11 +229,60 @@ The mockups came from a commercial mockup service. Its license allows website an
 
 ## Photography gaps and reshoot list
 
-1. **16 in-device stage frames:** per-slot focus captures at the MacBook Pro’s native 3456×2234, Dark and Light, rendered in the same dark-reflective mockup scene. This upgrades the Stage from “window rises in front” to “the screen itself changes”.
-2. **All eight slates open** in one list: still missing since v1.
+1. **Stage v2b renders:** 18 in-device frames. The exact list is in *Mockup render list* below.
+2. **All eight slates open** in one list: still missing since v1. The Stage idle frames in the render list cover it.
 3. **Settings → Data** (iCloud Sync, Automatic Backups), Dark and Light.
 4. **An empty slate** (404 gag) and the **“Copied” confirmation** state.
 5. **Dark-mode screen recordings.** The three existing recordings are Light only, and the home page is dark. Also useful: ≤ 6-second silent loops cropped to the window (⌘3 → focus → ⌘\\; a bullet click cycling; Copy & Clear).
+
+## Mockup render list
+
+Everything is rendered in the **same mockup scene** as the existing ten dark-reflective frames: *MacBook Pro 16-inch mockup on dark reflective surface*.
+
+- Do not change camera, zoom, lighting, reflection, shadow, background, or export size (6400×4800 JPEG).
+- Check alignment by overlaying the new idle render on `…_dark_list-vertical.jpeg`. The laptop body and bezel must match to the pixel.
+- Deliver to `resources/mockups/stage/` (local, gitignored) with the file names below.
+
+### Screen captures that feed the renders
+
+One capture session on a MacBook Pro 16" at native **3456×2234**, the same size as the existing simple-pack full-desktop captures.
+
+- **Content:** the simple pack (`marketing/generated/marketing-slates-simple.json` via File → Restore Backup…), with the *Settings preload* from `marketing/copy/screenshot-script.md`. Hex color previews on; default Task cycle; first-run banner dismissed.
+- **Appearance:** Dark frames use View → Theme → Dark with the Slates Dark palette. Light frames use Theme → Light with Slates Light. Keep the same desktop wallpapers as the existing pair (dark wave for Dark, the sand wave for Light).
+- **Identical across all captures, so only the window content changes:**
+  - **Window:** same position and size in every capture. Size it once for the idle list, then never move or resize it; switch slates with ⌘1–⌘8 and ⌘\\. If the app resizes the window when entering focus, note it and pick a size that looks right for both.
+  - **Dock and menu bar:** same Dock apps and the same menu-bar extras.
+  - **Clock:** set Control Center → Clock Options → *Analog* with the date hidden, and shoot each appearance in one quick batch.
+  - **No distractions:** Do Not Disturb on, no notifications, pointer moved off-screen, caret at rest (not blinking mid-shot), no hover highlights.
+- **Word wrap:** off, except the two slate 6 (dictionary) frames, where it is on. Use the same setting in Dark and Light.
+
+### Required for Stage v2b (18 renders)
+
+| # | File | Screen shows |
+|---|------|--------------|
+| 1 | `stage_dark_list.jpeg` | Vertical list, **all eight slates visible** (use Fit to content ⌘⌥R if needed), Dark |
+| 2–9 | `stage_dark_slate1.jpeg` … `stage_dark_slate8.jpeg` | Slate N in focus view (⌘N), Dark |
+| 10 | `stage_light_list.jpeg` | Same as #1, Light |
+| 11–18 | `stage_light_slate1.jpeg` … `stage_light_slate8.jpeg` | Same as #2–9, Light |
+
+Slates 1–8 are Next Week, To read, Studio codes, Site tokens, Site launch, slate (dictionary), This week, Sunset, matching the v2a window crops. These 18 replace the current idle pair (`…_dark_list-vertical.jpeg` / `…_light-list-vertical.jpeg`) on the Stage so the whole set aligns.
+
+### Recommended for `/features` (8 renders)
+
+| File | Screen shows | New capture needed? |
+|------|--------------|---------------------|
+| `stage_light_settings_bullets.jpeg` | Light counterpart of the existing dark Settings → Bullets frame | No: render `master-slates-simple/light_fulldesktop_settings_bullets.png` |
+| `stage_light_settings_editor.jpeg` | Light counterpart of Settings → Editor | No: `light_fulldesktop_settings_editor.png` |
+| `stage_light_syntax_language_selection.jpeg` | Light counterpart of the syntax language picker | No: `light_fulldesktop_syntax_language_selection.png` |
+| `stage_light_windowcollapsed.jpeg` | Light counterpart of the collapsed window (⌘M) | No: `light_fulldesktop_windowcollapsed.png` |
+| `stage_dark_settings_data.jpeg` | Settings → Data: iCloud Sync (Off, with “Turn On…”) and Automatic Backups, Dark | Yes |
+| `stage_light_settings_data.jpeg` | Same, Light | Yes |
+| `stage_dark_menubar.jpeg` | Activate With → Menu Bar Icon: the compact window open under the Slates status item, Dark | Yes |
+| `stage_light_menubar.jpeg` | Same, Light | Yes |
+
+The first four give chapters 3, 5, and 6 aligned Dark/Light pairs from captures that already exist. The last four fill the empty chapter 7 (iCloud, backups, menu bar). Nothing else is needed from the mockup scene: the “Same desk, lights up” band already has an aligned horizontal pair, and the lifestyle strip has enough frames.
+
+Not mockups, but still needed as flat captures: an empty slate (404), the “Copied” confirmation, and Dark window-cropped recordings or loops (see *Photography gaps* items 4–5).
 
 ## Recommended next steps (small commits, in order)
 
@@ -284,11 +336,11 @@ The mockups came from a commercial mockup service. Its license allows website an
 
 Resolved 2026-09-22: A1–A6 approved (A3 as click-to-play on `/features`); paid-plan license confirmed; palette wall may re-theme `/features`.
 
+Also resolved 2026-09-22: Stage v2a now and v2b after the renders (both, in that order); Light-mode visitors see the demos in Light first.
+
 Still open:
 
-1. Stage v2a (window rises over the list, possible with current assets) now, and v2b (16 in-device frames) after a reshoot? Recommended: yes, both, in that order.
-2. Whether Light-mode visitors see the demos in Light first (`prefers-color-scheme`).
-3. Short silent loops on the home page (BLUEPRINT §19 item 6). Best candidates: list ↔ focus, and a ⌘L orientation change. They need new window-cropped captures, ideally in Dark.
+1. Short silent loops on the home page (BLUEPRINT §19 item 6). Best candidates: list ↔ focus, and a ⌘L orientation change. They need new window-cropped captures, ideally in Dark.
 
 ## References
 

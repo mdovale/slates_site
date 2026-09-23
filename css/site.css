@@ -875,6 +875,80 @@ a.store:focus-visible {
 
 /* ---------- Motion ---------- */
 
+/* Cross-page transitions: the site bar and footer hold still, content fades */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+.site-bar {
+  view-transition-name: site-bar;
+}
+
+.site-foot {
+  view-transition-name: site-foot;
+}
+
+::view-transition-group(root) {
+  animation-duration: var(--t-base);
+}
+
+/*
+ * Scroll-driven patterns. Browsers without view timelines get the finished
+ * layout; nothing here carries information.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Settle: a band's header slides in and its glyph pops as it enters */
+    .band-head-inner {
+      animation: settle linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 90%;
+    }
+
+    .band-head .dot {
+      animation: pop linear both;
+      animation-timeline: view();
+      animation-range: entry 30% entry 100%;
+    }
+
+    /* Stagger: feature cards arrive one after another, 1 to 8 */
+    .features .feature {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 85%;
+    }
+
+    .features .feature:nth-child(even) {
+      animation-range: entry 15% entry 95%;
+    }
+
+    /* Drift: large photographs scale in slightly */
+    .drift {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+
+@keyframes settle {
+  from { opacity: 0; transform: translateX(-24px); }
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1.5rem); }
+}
+
+@keyframes drift {
+  from { opacity: 0.55; transform: scale(0.96); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

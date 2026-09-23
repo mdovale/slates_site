@@ -101,4 +101,19 @@
   --wide: 72rem;
   --gutter: clamp(1.25rem, 5vw, 3rem);
   --band-pad: clamp(4rem, 9vw, 6rem);
+
+  /* Motion (BLUEPRINT §8.7). Reduced motion turns all of it off in site.css. */
+  --t-quick: 140ms;
+  --t-base: 280ms;
+  --t-stage: 420ms;
+  --t-sweep: 600ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: var(--ease-out);
+}
+
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    /* A mild spring: overshoots about 4%, settles by 80% of the duration */
+    --ease-spring: linear(0, 0.26 9%, 0.64 20%, 0.9 32%, 1.03 44%, 1.04 52%, 1.015 66%, 0.998 80%, 1);
+  }
 }

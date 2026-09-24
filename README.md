@@ -58,24 +58,16 @@ photography machine, and is never published. `images/` gets cropped exports.
 python3 -m http.server 8000
 ```
 
-Open <http://localhost:8000/>. Every page except the 404 works this way.
-
-The 404 page resolves links from `/slates_site/`, the GitHub Pages project
-path. To preview it exactly as Pages serves it:
-
-```bash
-mkdir -p /tmp/pagesroot && ln -sfn "$PWD" /tmp/pagesroot/slates_site
-python3 -m http.server 8001 --directory /tmp/pagesroot
-```
-
-Then open <http://localhost:8001/slates_site/> (and any bad path under it).
+Open <http://localhost:8000/>. To preview the 404, open
+<http://localhost:8000/404.html>. GitHub Pages serves that file for a
+missing path; the local server does not.
 
 ## Deploy
 
 GitHub Pages, **Deploy from a branch**, `main`, folder `/ (root)`. Push to
 `main` and the site updates in a minute or two.
 
-Current URL: <https://mdovale.github.io/slates_site/>
+Current URL: <https://slates.works/>
 
 ## Common edits
 
@@ -126,12 +118,10 @@ Replace each `<span class="store store-soon">…</span>` with:
 
 Then update “coming soon to the Mac App Store” in `history/index.html`.
 
-### Move to a custom domain
+### Custom domain
 
-1. Add a `CNAME` file with the domain and set it in the repo’s Pages settings.
-2. Replace `https://mdovale.github.io/slates_site/` in canonical and Open
-   Graph tags (`rg -n "mdovale.github.io" --glob '*.html'`).
-3. In `404.html`, change `<base href="/slates_site/">` to `<base href="/">`.
+The site is served at <https://slates.works/>. Canonical and Open Graph
+tags use that host. `404.html` uses `<base href="/">`.
 
 ### Update the press kit
 

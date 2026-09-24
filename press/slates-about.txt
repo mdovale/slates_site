@@ -11,7 +11,7 @@ Coming soon to the Mac App Store
 No analytics. No third-party sync.
 
 Press and support: mikedovale@pm.me
-https://mdovale.github.io/slates_site/
+https://slates.works/
 
 Colors, Slates Dark
 1  Yellow  #ffd600

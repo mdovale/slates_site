@@ -1315,6 +1315,53 @@ a.store:focus-visible {
   --size: 1.4rem;
 }
 
+/* ---------- Press kit ---------- */
+
+.press h2 {
+  margin-top: 2.75rem;
+}
+
+.kit,
+.swatches {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kit li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.kit span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.swatches li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.55rem 0;
+}
+
+.swatches .dot {
+  --size: 1.7rem;
+}
+
+.swatches code {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.95rem;
+}
+
 /* ---------- Support ---------- */
 
 .contact {

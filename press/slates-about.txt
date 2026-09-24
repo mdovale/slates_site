@@ -1,0 +1,26 @@
+Slates
+Eight color-coded scratchpads for quick capture.
+
+Short: A minimal macOS scratchpad with eight colored slates. Local by default, with optional iCloud sync.
+
+Slates is a simple app. It gives you eight color-coded scratchpads so you can capture text fast and find it by color — door codes, meeting links, snippets to paste a few times. Stored locally by default; optional iCloud sync if you want it.
+
+Miguel Dovale
+macOS 14 Sonoma or later
+Coming soon to the Mac App Store
+No analytics. No third-party sync.
+
+Press and support: mikedovale@pm.me
+https://mdovale.github.io/slates_site/
+
+Colors, Slates Dark
+1  Yellow  #ffd600
+2  Orange  #ff9230
+3  Pink    #ff375f
+4  Purple  #db34f2
+5  Blue    #0091ff
+6  Cyan    #00d2e0
+7  Green   #30d158
+8  Gray    #797979
+
+These files are for articles and reviews about Slates.

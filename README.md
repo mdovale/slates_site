@@ -140,22 +140,31 @@ and the text sheet say the same thing. Storage wording stays **Stored
 locally by default; optional iCloud sync.** The App Store line stays
 “Coming soon” until the listing exists (see above).
 
-Screenshots in `press/` are window crops, not the web JPEGs in `images/`:
-
-- `list-dark.png` and `list-light.png` from
-  `resources/master-slates-simple-dockless/{dark,light}-listv-full.png`,
-  crop `1492x1878+740+56`
-- `focus-dark.png` and `focus-light.png` from
-  `{dark,light}-slate1.png` in that same folder, crop `1380x1420+454+172`
+Each picture on the page is a small WebP in `press/previews/`. The link
+beside it is the file a writer saves. After replacing a file, rebuild
+the preview and update the size and pixel dimensions in `press/index.html`.
 
 ```bash
 magick resources/master-slates-simple-dockless/dark-listv-full.png \
   -crop 1492x1878+740+56 +repage -colorspace sRGB -strip press/list-dark.png
+magick press/list-dark.png -resize '1400x1400>' -quality 76 -strip \
+  press/previews/list-dark.webp
 ```
 
-The app icon links to `images/app-icon.png` (512×512). After replacing a
-file, update the size and pixel dimensions in the list on the page.
-Do not copy `resources/` into `press/`.
+Window crops, all from `resources/master-slates-simple-dockless/`:
+
+| File | Source | Crop |
+|------|--------|------|
+| `list-{dark,light}.png` | `{dark,light}-listv-full.png` | `1492x1878+740+56` |
+| `focus-{dark,light}.png` | `{dark,light}-slate1.png` | `1380x1420+454+172` |
+| `code-{dark,light}.png` | `{dark,light}-slate4.png` | `1380x1420+454+172` |
+| `settings-{dark,light}.png` | `{dark,light}-settings-appearance.png` | `1320x1298+880+448` |
+| `menubar-{dark,light}.png` | `{dark,light}-menubar.png` | `1200x860+1792+0` |
+| `language-dark.png` | `dark-language-picker.png` | `1900x1854+400+80` |
+
+`world-*.jpg` are the six home-page photographs, resized from
+`resources/mockups/` to a 2200 px long edge. The app icon links to
+`images/app-icon.png` (512×512). Do not copy `resources/` into `press/`.
 
 ### Every January
 

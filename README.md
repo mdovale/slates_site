@@ -18,6 +18,7 @@ Hand-written HTML and CSS. No framework, no build step, no analytics.
 | `/support/` | `support/index.html` | Support URL: contact + FAQ |
 | `/privacy/` | `privacy/index.html` | Privacy Policy URL |
 | `/history/` | `history/index.html` | Release notes |
+| `/press/` | `press/index.html` | Press kit |
 | any missing path | `404.html` | Not found |
 
 Never move `/`, `/support`, or `/privacy` without redirects. App builds and
@@ -31,6 +32,7 @@ features/index.html
 support/index.html
 privacy/index.html    zero JavaScript
 history/index.html
+press/index.html      press kit, plus the text sheet and screenshots beside it
 404.html
 css/tokens.css        palette, type, layout, and motion tokens
 css/site.css          everything else
@@ -131,6 +133,30 @@ Then update “coming soon to the Mac App Store” in `history/index.html`.
    Graph tags (`rg -n "mdovale.github.io" --glob '*.html'`).
 3. In `404.html`, change `<base href="/slates_site/">` to `<base href="/">`.
 
+### Update the press kit
+
+Edit `press/index.html` and `press/slates-about.txt` together so the page
+and the text sheet say the same thing. Storage wording stays **Stored
+locally by default; optional iCloud sync.** The App Store line stays
+“Coming soon” until the listing exists (see above).
+
+Screenshots in `press/` are window crops, not the web JPEGs in `images/`:
+
+- `list-dark.png` and `list-light.png` from
+  `resources/master-slates-simple-dockless/{dark,light}-listv-full.png`,
+  crop `1492x1878+740+56`
+- `focus-dark.png` and `focus-light.png` from
+  `{dark,light}-slate1.png` in that same folder, crop `1380x1420+454+172`
+
+```bash
+magick resources/master-slates-simple-dockless/dark-listv-full.png \
+  -crop 1492x1878+740+56 +repage -colorspace sRGB -strip press/list-dark.png
+```
+
+The app icon links to `images/app-icon.png` (512×512). After replacing a
+file, update the size and pixel dimensions in the list on the page.
+Do not copy `resources/` into `press/`.
+
 ### Every January
 
 Update the copyright year in the footer of each page
@@ -199,7 +225,7 @@ app's palettes change, update those attributes; do not invent a palette.
 
 - No analytics, pixels, cookies, third-party fonts, scripts, or embeds. The
   privacy page promises this.
-- Zero JavaScript on `/privacy`. Other pages may use up to about 150 lines
+- Zero JavaScript on `/privacy` and `/press`. Other pages may use up to about 150 lines
   of vanilla JS, loaded with `defer`, never needed to render or read. The
   Stage, the Dark / Light switches, the mode tabs, the language picker,
   and the chapter links all work with JavaScript off.

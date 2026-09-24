@@ -56,7 +56,7 @@ Primary:
 
 Secondary:
 
-- Press / blogs (later: quotes, press kit)
+- Press / blogs (the kit is at `/press`; quotes later)
 - Future iPhone users, once Pocket ships
 
 Write for a broad, non-technical reader. Do not assume they know iCloud containers, sandboxes, or “slots.json”.
@@ -107,7 +107,7 @@ Design brief and implementation plan: `docs/handoffs/20260922_v2-motion-showcase
 - Short silent loops on the home page, e.g. the list ↔ focus transition or a list orientation change (⌘L). Needs its own decision; see §8.7 and §19
 - Custom domain (prefer this as the URL frozen into binaries once owned)
 - iOS / iPad download band when Pocket ships
-- Press quotes and press kit
+- Press quotes
 - Terms of Use (needed if IAP / paid unlock ships)
 - Localized pages
 - Blog
@@ -134,6 +134,7 @@ Keep the URL surface tiny and stable. Shipped app builds will hard-link these.
 | `/privacy` | Privacy policy. | **Privacy Policy URL** |
 | `/features` | Every major feature, one chapter per slate color (v2, §7.4) | Linked from the site nav |
 | `/history` | Full release notes | Linked from home “What’s new” |
+| `/press` | Press kit: boilerplate, icon, screenshots, and the eight colors | Linked from the home closing band |
 | `/404.html` | GitHub Pages 404 | — |
 
 Site nav (every page): **Features · What’s new · Support**. Footer stays Support · Privacy · Email · ©.
@@ -143,7 +144,6 @@ Optional later, same host:
 | Path | Role |
 |------|------|
 | `/terms` | Terms of Use, if IAP ships |
-| `/press` | Press kit |
 
 **Do not** use a GitHub Issues URL, a repo README, or `mailto:` alone as the Support URL. Reviewers want a real page.
 
@@ -157,7 +157,7 @@ The home page is a vertical walk through eight colored “slates,” then suppor
 4. **Feature grid** — Eight features, one per slate color (see §9).
 5. **What’s new** — Two-sentence blurb + link to `/history`.
 6. **Get help** — Same contact + top FAQ teasers as `/support`, so the home page is never a dead end for App Review.
-7. **Closing mark** — Icon + “Give Slates a try.” + App Store button again. Under the macOS line, the acknowledgments sentence from the app: *Slates was inspired by Tot from The Iconfactory.* **Tot** links to `https://tot.rocks`. **The Iconfactory** links to `https://www.iconfactory.com`. Text links only. This is inspiration, not a partnership. The signed About letter stays in the app.
+7. **Closing mark** — Icon + “Give Slates a try.” + App Store button again. Under the macOS line, the acknowledgments sentence from the app: *Slates was inspired by Tot from The Iconfactory.* **Tot** links to `https://tot.rocks`. **The Iconfactory** links to `https://www.iconfactory.com`. Text links only. This is inspiration, not a partnership. The signed About letter stays in the app. Under that sentence, a **Press kit** link goes to `/press`. The footer line is unchanged.
 
 **v2 changes to the home scroll** (approved September 2026):
 
@@ -540,11 +540,11 @@ slates-site/
 └── fonts/                ← only if self-hosting a display face
 ```
 
-As shipped (v1), pages live in directories (`support/index.html`, `privacy/index.html`, `history/index.html`), with `js/home.js` for the home page. v2 adds `features/index.html`, `images/stage/` for the Stage frames, and `video/` for encoded, click-to-play recordings (no masters; `resources/` stays local). README keeps the current tree.
+As shipped (v1), pages live in directories (`support/index.html`, `privacy/index.html`, `history/index.html`), with `js/home.js` for the home page. v2 adds `features/index.html`, `images/stage/` for the Stage frames, and `video/` for encoded, click-to-play recordings (no masters; `resources/` stays local). The press kit is `press/index.html` and the files beside it. README keeps the current tree.
 
 GitHub Pages pretty URLs: either `support.html` + `/support` via a `support/index.html` pair, or a simple `support/index.html`. Prefer **directories with `index.html`** so `/support` and `/privacy` never show `.html`.
 
-On the photography machine, `resources/` sits beside this tree and is gitignored (§8.5). `images/` is the only image tree GitHub Pages serves.
+On the photography machine, `resources/` sits beside this tree and is gitignored (§8.5). Page photography is published from `images/`. The press kit’s downloads live in `press/`. GitHub Pages does not serve `resources/`.
 
 ### 11.4 Local preview
 
